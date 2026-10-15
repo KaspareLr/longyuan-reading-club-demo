@@ -9,7 +9,7 @@
  function sync(){const back=header.querySelector('.club-page-back');back.hidden=/^#\/(books|magazines)(?:[?]|$)/.test(location.hash);const parent=document.querySelector('.view.active .oc-dock-back');back.dataset.parent=parent?.getAttribute('href')||(/#\/book\//.test(location.hash)?'#/books':'#/magazines');const route=location.hash.split(/[/?]/)[1];header.querySelectorAll('[data-route]').forEach(a=>{const active=a.dataset.route===route;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});}
  header.querySelector('.club-page-back').addEventListener('click',()=>{if(history.length>1)history.back();else location.href=header.querySelector('.club-page-back').dataset.parent;});
  document.addEventListener('click',event=>{
-  if(event.target.closest('[data-rd-action="purchase"],[data-rd-action="subscribe"],[data-rd-action="member"]')){event.preventDefault();event.stopImmediatePropagation();location.href=demo+'?panel=member#home';}
+  if(event.target.closest('[data-rd-action="purchase"],[data-rd-action="subscribe"],[data-rd-action="member"]')){event.preventDefault();event.stopImmediatePropagation();location.href=new URL('../portal.html#/membership',location.href).href;}
  },true);
  function syncAssistant(){
   const native=document.querySelector('.view.active .pe-chat');let shared=document.querySelector('.club-global-guide');
