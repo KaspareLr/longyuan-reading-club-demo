@@ -94,3 +94,21 @@ main{max-width:1380px;padding:168px 10px 120px;margin:auto;display:flex;flex-dir
 .book-art .book-cover{position:absolute;top:40px;left:50%;height:calc(100% - 80px);aspect-ratio:14/19;transform:translateX(-50%)}
 .book-art .book-cover>img{width:100%;height:100%;max-width:none;object-fit:cover}
 @media(max-width:760px){.book-art .book-cover{top:20px;height:calc(100% - 40px)}}
+
+/* 1440 desktop: intro and featured reading share the opening viewport. */
+@media(min-width:1101px) and (max-width:1536px){
+ main{max-width:1248px;margin-inline:auto;padding:108px 0 96px;width:calc(100% - 2 * clamp(64px,6.6667vw,104px));gap:72px}
+ .intro{margin-bottom:-48px}
+ .intro h1{font-size:64px;line-height:76px}
+ .guide-row{padding:20px 0 0}
+ .feature{height:calc(100svh - 372px);min-height:360px;max-height:540px;padding:32px;gap:28px;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 248px;border-radius:32px}
+ .feature-copy h2{font-size:48px;line-height:58px}
+ .feature-more{padding-top:16px}
+ .feature-progress{padding:24px 16px;gap:12px;border-radius:24px}
+ .progress-ring{width:128px;height:128px}
+ .progress-ring strong{font-size:26px;line-height:36px}
+ .podcast-grid{gap:24px}
+ .article-item{grid-template-columns:minmax(0,1fr) minmax(0,1.35fr) 32px;gap:28px}
+ .article-image-frame{width:100%}
+ .activity{padding:40px;gap:40px}
+}
