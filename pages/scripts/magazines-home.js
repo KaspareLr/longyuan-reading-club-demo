@@ -3,7 +3,7 @@
  const root=document.querySelector('#view-magazines'),data=window.magazinesHomeData;if(!root||!data)return;
  const e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const arrow='<img src="assets/figma-magazines/card-arrow.svg" alt="">';
- const volume=m=>renderReadingBookVolume({contentType:'journal',bookTitle:m.title,cover:m.cover,spineColor:'#c7c4bd'});
+ const volume=m=>renderReadingBookVolume({contentType:'journal',bookTitle:m.title,cover:m.cover});
  [...root.children].forEach(n=>n.classList.add('magazines-legacy'));
  const page=document.createElement('div');page.className='magazines-home';root.append(page);
  const picks=[data.magazines[0],...data.magazines.filter(m=>['瞭望东方周刊','南都周刊','财经','读者'].includes(m.title))].slice(0,5);
