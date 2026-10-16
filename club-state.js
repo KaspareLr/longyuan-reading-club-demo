@@ -1,11 +1,13 @@
 /* Shared local-only account state across the independent demo. */
 (()=>{
  const base=new URL('.',document.currentScript.src);window.clubRootURL=base.href;
- const avatarPool=["assets/account-avatars/avatar-01.png", "assets/account-avatars/avatar-02.png", "assets/account-avatars/avatar-03.png", "assets/account-avatars/avatar-04.png", "assets/account-avatars/avatar-05.png", "assets/account-avatars/avatar-06.png", "assets/account-avatars/avatar-07.png", "assets/account-avatars/avatar-08.png", "assets/account-avatars/avatar-09.png"];
+ const avatarPool=["assets/default-avatars/author-1.png", "assets/default-avatars/author-2.png", "assets/default-avatars/author-3.png", "assets/default-avatars/author-4.png", "assets/default-avatars/call_7PweNBn5vkxrwUsG2nA01cD2.png", "assets/default-avatars/call_9G8tmFXUSq488NnKy6qQDQUg.png", "assets/default-avatars/call_BoUMGW0VsMdNAEWB3HBp6EiM.png", "assets/default-avatars/call_EeDwyLTBmtofOnY7o0uy68Ra.png", "assets/default-avatars/call_L26vyrRbEgCUZLAPBfYfhjj4.png", "assets/default-avatars/call_OgiavCgYXJGgkDCcW3039MFv.png", "assets/default-avatars/call_T4m9NoHP7lo2kGRubhxu5kva.png", "assets/default-avatars/call_bsA98T6GedRq1dMVTYDm77kF.png", "assets/default-avatars/call_d2LVFBYix0Gn6rv3XKLygKSd.png", "assets/default-avatars/call_eNbU08SV8Df2izJJKLtj5X70.png", "assets/default-avatars/call_oiWPtL1xhiIsZCa7S1dGNPfT.png", "assets/default-avatars/call_p7SJ7jUHe2q6KPGDR7190KVu.png", "assets/default-avatars/call_ztGyJ7Q15W6aqqQVmWAgoCGb.png"];
  const read=(key,fallback)=>{try{return JSON.parse(localStorage.getItem('club-demo:'+key))??fallback}catch{return fallback}};
  const write=(key,value)=>{try{localStorage.setItem('club-demo:'+key,JSON.stringify(value))}catch{}};
+ const defaultAvatar=()=>{const saved=read('default-avatar',null);if(avatarPool.includes(saved))return saved;const selected=avatarPool[Math.floor(Math.random()*avatarPool.length)];write('default-avatar',selected);return selected};
+ const needsDefault=avatar=>!avatar||avatar.startsWith('assets/account-avatars/');
  const state=window.clubSession={get profile(){return read('profile',null)},get membership(){return read('membership',null)},read,write,
-  update(profile){profile={...profile,avatar:profile.avatar||read('default-avatar',null)||avatarPool[Math.floor(Math.random()*avatarPool.length)]};write('default-avatar',profile.avatar);write('profile',profile);try{localStorage.setItem('club-demo:nickname',profile.nickname)}catch{};refresh();window.dispatchEvent(new Event('club-session-change'))},
+  update(profile){profile={...profile,avatar:needsDefault(profile.avatar)?defaultAvatar():profile.avatar};write('default-avatar',profile.avatar);write('profile',profile);try{localStorage.setItem('club-demo:nickname',profile.nickname)}catch{};refresh();window.dispatchEvent(new Event('club-session-change'))},
   logout(){write('profile',null);try{localStorage.removeItem('club-demo:nickname')}catch{};refresh();window.dispatchEvent(new Event('club-session-change'))},
   member(plan){write('membership',{...plan,expires:'2027-10-15',started:'2026-10-15'});window.dispatchEvent(new Event('club-session-change'))},
   login(){dialog.showModal();dialog.querySelector('input').focus()}
@@ -14,7 +16,7 @@
  dialog.querySelector('#club-demo-login').addEventListener('submit',e=>{e.preventDefault();const f=e.target;state.update({nickname:f.nickname.value.trim(),email:f.email.value,bio:'读书，读人，也读世界。',city:'上海',interests:['文学','生活']});dialog.close()});
  const themes={共读:'reading',书友:'people',活动:'events',会员:'membership'};
  function refresh(){
-  let profile=state.profile;if(profile&&!profile.avatar){profile={...profile,avatar:read('default-avatar',null)||avatarPool[Math.floor(Math.random()*avatarPool.length)]};write('default-avatar',profile.avatar);write('profile',profile)}
+  let profile=state.profile;if(profile&&needsDefault(profile.avatar)){profile={...profile,avatar:defaultAvatar()};write('default-avatar',profile.avatar);write('profile',profile)}
   document.querySelectorAll('.nav-shell nav a,.nav-shell nav button,.club-demo-topbar .nav a').forEach(el=>{
    const page=themes[el.textContent.trim()];if(!page)return;
    if(el.tagName==='BUTTON'){const a=document.createElement('a');a.href=new URL('portal.html#/'+page,base);a.textContent=el.textContent;el.replaceWith(a)}else el.href=new URL('portal.html#/'+page,base);
