@@ -34,3 +34,6 @@ body>.topbar.club-demo-topbar{display:flex;justify-content:center;align-items:fl
 @media(max-width:760px){.portal-account{grid-template-columns:minmax(0,1fr)}.portal-account-side{min-width:0}}
 
 body.people-home-page .site-header .nav-shell,body.club-demo-context .club-demo-topbar .nav-island{background:rgba(255,255,255,.9)}
+
+/* Demo login can also enter the unconfigured club-owner scenario. */
+.club-account-dialog select{width:100%;padding:14px 16px;border:1px solid #dcdfe6;border-radius:12px;background:#fafafa;color:#131921;font:inherit;font-size:16px}
