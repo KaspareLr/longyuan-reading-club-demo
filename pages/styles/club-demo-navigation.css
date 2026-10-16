@@ -34,3 +34,31 @@ body.club-demo-context .pe-identity-resource-actions{display:flex;align-items:ce
 body.club-demo-context .pe-identity-resource-actions>a,body.club-demo-context .pe-identity-resource-actions>button{display:inline-flex;align-items:center;justify-content:center;padding:13px 40px;border:1px solid #c0c4cc;border-radius:12px;background:#fff;color:#131921;font:500 14px/20px Figtree,"PingFang SC",sans-serif;text-decoration:none;white-space:nowrap;cursor:pointer}
 body.club-demo-context .pe-identity-resource-actions>.pe-identity-original{background:#131921;color:#fff;border-color:#131921}
 @media(max-width:900px){body.club-demo-context .rd-periodical.pe-figma-detail .pe-identity{height:auto;min-height:0}body.club-demo-context .pe-identity-resource-actions{gap:12px;margin-top:0;padding-top:24px}body.club-demo-context .pe-identity-resource-actions>a,body.club-demo-context .pe-identity-resource-actions>button{padding-inline:24px}}
+
+/* Figma 223:7484 — category, journal metadata, reading actions, then guide. */
+body.club-demo-context .rd-periodical.pe-figma-detail .pe-identity-refined{gap:80px}
+body.club-demo-context .rd-periodical.pe-figma-detail .pe-identity-refined>.pe-column-edition{margin:0;padding-block:40px;min-height:96px;flex:none}
+body.club-demo-context .rd-periodical.pe-figma-detail .pe-identity-refined>.pe-identity-top{margin:0;gap:10px;flex:none}
+body.club-demo-context .pe-identity-refined .pe-metadata{gap:20px;padding-block:20px;align-items:center}
+body.club-demo-context .pe-identity-refined .pe-social{gap:10px}
+body.club-demo-context .pe-identity-refined .pe-icon-button{padding:4px;width:32px;height:32px;min-height:32px;background:#ffffff1a;border-radius:12px}
+body.club-demo-context .pe-identity-refined .pe-icon-button>i{display:none}
+body.club-demo-context .pe-identity-refined .pe-icon-button[aria-pressed=true]>.pe-refined-icon{display:none}
+body.club-demo-context .pe-identity-refined .pe-icon-button[aria-pressed=true]>i{display:inline-block}
+body.club-demo-context .pe-refined-icon{display:block;flex:none}
+body.club-demo-context .pe-refined-issue-arrow{display:flex;align-items:center;justify-content:center;width:24px;height:24px}
+body.club-demo-context .pe-identity-refined .pe-issue-picker summary{display:flex;align-items:center;padding:4px;border-radius:12px;background:#ffffff1a}
+body.club-demo-context .pe-identity-refined .pe-identity-resource-actions{margin:0;padding:0;flex:none}
+body.club-demo-context .pe-identity-guide-slot{display:flex;align-items:center;flex:1;min-height:60px;padding-right:120px}
+body.club-demo-context .pe-identity-guide-card{display:flex;align-items:center;gap:10px;width:200px;min-width:200px;padding:10px;background:#ffffff80;border-radius:12px;box-shadow:0 2px 6px #0000001a}
+body.club-demo-context .pe-identity-guide-card>img{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none}
+body.club-demo-context .pe-identity-guide-name{display:flex;align-items:center;gap:4px}
+body.club-demo-context .pe-identity-guide-name strong{font:700 16px/28px Figtree,"PingFang SC",sans-serif;color:#131921}
+body.club-demo-context .pe-identity-guide-name>span{font:700 8px/12px Figtree,"PingFang SC",sans-serif;color:#fff;background:#d4380d;padding:2px 4px;border-radius:4px}
+body.club-demo-context .pe-identity-guide-card small{font:400 12px/16px Figtree,"PingFang SC",sans-serif;color:#909399}
+@media(min-width:901px) and (max-height:900px){body.club-demo-context .rd-periodical.pe-figma-detail .pe-identity-refined{gap:40px}body.club-demo-context .rd-periodical.pe-figma-detail .pe-identity-refined>.pe-column-edition{padding-block:24px;min-height:64px}}
+@media(max-width:900px){body.club-demo-context .rd-periodical.pe-figma-detail .pe-identity-refined{gap:28px}body.club-demo-context .rd-periodical.pe-figma-detail .pe-identity-refined>.pe-column-edition{padding-block:16px;min-height:48px}body.club-demo-context .pe-identity-guide-slot{padding:0;min-height:80px}}
+body.club-demo-context .pe-identity-refined .pe-icon-button>i{display:none!important}
+body.club-demo-context .pe-identity-refined .pe-icon-button[aria-pressed=true]>i{display:flex!important}
+body.club-demo-context .pe-identity-guide-card>div{display:flex;flex-direction:column;min-width:0}
+body.club-demo-context .pe-identity-guide-card small{display:block}

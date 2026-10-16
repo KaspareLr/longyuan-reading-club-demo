@@ -40,7 +40,13 @@ window.renderOrdinaryPeriodical = function(m, issue) {
    .replace(/<footer class="pe-source">[\s\S]*?<\/footer>/,'')
    .replace(/(<span class="pe-related-info">[\s\S]*?<\/span><\/span>)<small>[\s\S]*?<\/small>/g,'$1');
   const identityActions=`<div class="pe-identity-resource-actions" aria-label="期刊阅读方式">${d?.trial?external('原貌版试读',d.trial,'pe-identity-original'):'<button type="button" class="pe-identity-original" data-rd-action="facsimile">原貌版试读</button>'}<button type="button" class="pe-identity-archive" data-rd-action="archive">过往期刊</button></div>`;
-  markup=markup.replace('</aside>',identityActions+'</aside>').replace(/<div class="pe-purchase-dock pe-figma-action-dock">[\s\S]*?<\/div><\/div>/,'');
+  const guideCard='<div class="pe-identity-guide-slot"><div class="pe-identity-guide-card"><img src="assets/figma-identity/guide.png" width="40" height="40" alt="苏皖"><div><div class="pe-identity-guide-name"><strong>苏皖</strong><span>领读人</span></div><small>本刊编辑</small></div></div></div>';
+  markup=markup.replace('<aside class="pe-identity">','<aside class="pe-identity pe-identity-refined">')
+   .replace('</aside>',identityActions+guideCard+'</aside>')
+   .replace(/<div class="pe-purchase-dock pe-figma-action-dock">[\s\S]*?<\/div><\/div>/,'')
+   .replace('<i class="iconfont icon-mark" aria-hidden="true"></i>','<img class="pe-refined-icon" src="assets/figma-identity/mark.svg" width="24" height="24" alt=""><i class="iconfont icon-mark" aria-hidden="true"></i>')
+   .replace('<i class="iconfont icon-Share" aria-hidden="true"></i>','<img class="pe-refined-icon" src="assets/figma-identity/share.svg" width="24" height="24" alt=""><i class="iconfont icon-Share" aria-hidden="true"></i>')
+   .replace('<i class="iconfont icon-Arrow_Forward-2" aria-hidden="true"></i></summary>','<span class="pe-refined-issue-arrow"><img src="assets/figma-identity/issue-arrow.svg" width="5" height="10" alt=""></span></summary>');
  }
  return d&&!d.related.length?markup.replace(/<section class="pe-bottom-section"[\s\S]*?<\/section>/,''):markup;
 };
