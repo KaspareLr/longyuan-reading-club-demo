@@ -23,7 +23,7 @@
  dialog.addEventListener('cancel',()=>requestAnimationFrame(()=>focusBefore?.focus({preventScroll:true})));
  let toastTimer;function toast(message){const node=document.querySelector('.toast');node.textContent=message;node.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>node.classList.remove('visible'),2600);}
  const storage={get(key){try{return localStorage.getItem('club-demo:'+key);}catch{return null;}},set(key,value){try{localStorage.setItem('club-demo:'+key,value);}catch{}}};
- function renderReading(){location.href=clubProjectEntry+'#/magazine/'+encodeURIComponent('南风窗')+'?claimed=1&page=reading&id='+encodeURIComponent('magazine-第一财经');}
+ function renderReading(){clubPageMotion.navigate(clubProjectEntry+'#/magazine/'+encodeURIComponent('南风窗')+'?claimed=1&page=reading&id='+encodeURIComponent('magazine-第一财经'));}
  document.addEventListener('click',event=>{
   const button=event.target.closest('button');
   const nav=event.target.closest('.nav-shell nav a');if(nav){document.querySelectorAll('.nav-shell nav a').forEach(a=>a.removeAttribute('aria-current'));nav.setAttribute('aria-current','page');}
@@ -34,13 +34,13 @@
   if(kind==='login')open('欢迎来到龙源读书会','<p>设置一个昵称，体验你的阅读空间。</p><form class="dialog-form" id="login-form"><label>阅读昵称<input name="nickname" maxlength="20" required autocomplete="nickname" placeholder="怎么称呼你？"></label><button class="button dark" type="submit">进入读书会</button></form>');
   if(kind==='activities'||kind==='activity')open('曹文轩 · 油麻地的成长课','<img class="preview-cover" src="assets/activity.png" alt="领读活动海报"><p>2025年10月12日 · 济南市图书馆（中心馆）负一层大报告厅</p><p>活动已完结，报名已结束。你可以收藏活动，留待回顾。</p><button class="button dark" data-save="activity">收藏活动</button>');
   if(button.hasAttribute('data-book')){const b=books[Number(button.dataset.book)];open(escape(b.title),`<img class="preview-cover" src="${escape(b.cover)}" alt="《${escape(b.title)}》封面"><p>${escape(b.author)} · ${escape(b.publisher)} · ${escape(b.category)}</p><p>${escape(b.summary)}</p><div><a class="button dark" href="${escape(b.url)}" target="_blank" rel="noopener">前往阅读</a> <button class="button" data-save="book-${escape(b.id)}">加入我的书架</button></div>`);}
-  if(button.hasAttribute('data-magazine')){const m=magazines[Number(button.dataset.magazine)];location.href=clubProjectEntry+'#/magazine/'+encodeURIComponent(m.title)+'?claimed=0';return;}
+  if(button.hasAttribute('data-magazine')){const m=magazines[Number(button.dataset.magazine)];clubPageMotion.navigate(clubProjectEntry+'#/magazine/'+encodeURIComponent(m.title)+'?claimed=0');return;}
   if(button.dataset.podcast)open(podcasts[Number(button.dataset.podcast)],'<p>音频 · 示例资源</p><p>属于《南风窗》读书会。正式内容将关联本刊期次、领读人和单刊会员权限。</p><p>媒体介绍、关联原文与播放内容将在资源接入后展示。</p>');
   if(button.hasAttribute('data-join-confirm')){storage.set('joined','true');button.textContent='已加入 · 共读计划已开启';document.querySelector('.join').textContent='查看领读';toast('已加入本期共读');}
   if(button.dataset.save){storage.set('saved-'+button.dataset.save,'true');button.textContent='已收藏';toast('已保存到当前浏览器');}
   if(button.dataset.follow){storage.set('follow-'+button.dataset.follow,'true');button.textContent='已关注';}
   if(button.hasAttribute('data-member-preview')){storage.set('member','true');button.textContent='会员体验已开启';document.querySelector('.member').lastChild.textContent='会员中心';toast('已切换为会员体验状态');}
-  if(button.dataset.jump&&['books','magazines'].includes(button.dataset.jump)){location.href=projectHome(button.dataset.jump);return;}
+  if(button.dataset.jump&&['books','magazines'].includes(button.dataset.jump)){clubPageMotion.navigate(projectHome(button.dataset.jump));return;}
   if(button.dataset.jump){close();document.getElementById(button.dataset.jump).scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}
  });
  document.addEventListener('submit',event=>{if(event.target.id!=='login-form')return;event.preventDefault();const nickname=event.target.elements.nickname.value.trim();if(!nickname)return;storage.set('nickname',nickname);document.querySelector('.login').textContent=nickname;close();toast('欢迎，'+nickname);});

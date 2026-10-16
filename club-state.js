@@ -24,8 +24,8 @@
   document.querySelectorAll('.login,.nav-login').forEach(el=>{el.replaceChildren();if(profile){const img=document.createElement('img');img.className='club-account-avatar';img.src=new URL(profile.avatar,base);img.alt='';img.width=28;img.height=28;const name=document.createElement('span');name.className='club-account-name';name.textContent=profile.nickname;el.append(img,name)}else el.textContent='登录';el.classList.toggle('is-signed-in',!!profile);el.setAttribute('aria-label',profile?'我的阅读空间':'登录');if(el.tagName==='A')el.href=new URL('portal.html#/me',base)});
  }
  document.addEventListener('click',e=>{
-  const login=e.target.closest('.login,.nav-login,[data-club-login]');if(login){e.preventDefault();e.stopImmediatePropagation();if(state.profile&&!login.hasAttribute('data-club-login'))location.href=new URL('portal.html#/me',base);else state.login();return}
-  const member=e.target.closest('[data-open="member"],.member');if(member){e.preventDefault();e.stopImmediatePropagation();location.href=new URL('portal.html#/membership',base);return}
+  const login=e.target.closest('.login,.nav-login,[data-club-login]');if(login){e.preventDefault();e.stopImmediatePropagation();if(state.profile&&!login.hasAttribute('data-club-login'))clubPageMotion.navigate(new URL('portal.html#/me',base));else state.login();return}
+  const member=e.target.closest('[data-open="member"],.member');if(member){e.preventDefault();e.stopImmediatePropagation();clubPageMotion.navigate(new URL('portal.html#/membership',base));return}
  },true);
  refresh();window.addEventListener('storage',refresh);window.addEventListener('hashchange',refresh);
 })();

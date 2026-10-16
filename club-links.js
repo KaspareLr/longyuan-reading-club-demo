@@ -20,8 +20,8 @@
   });
  }
  document.addEventListener('click',ev=>{
-  const b=ev.target.closest('[data-book]');if(b){ev.preventDefault();ev.stopImmediatePropagation();const item=window.clubCatalogData?.books[Number(b.dataset.book)];if(item)location.href=portal('book/'+e(item.id));return}
-  const activity=ev.target.closest('[data-open="activity"],[data-open="activities"]');if(activity){ev.preventDefault();ev.stopImmediatePropagation();location.href=portal(activity.dataset.open==='activity'?'event/oil':'events')}
+  const b=ev.target.closest('[data-book]');if(b){ev.preventDefault();ev.stopImmediatePropagation();const item=window.clubCatalogData?.books[Number(b.dataset.book)];if(item)clubPageMotion.navigate(portal('book/'+e(item.id)));return}
+  const activity=ev.target.closest('[data-open="activity"],[data-open="activities"]');if(activity){ev.preventDefault();ev.stopImmediatePropagation();clubPageMotion.navigate(portal(activity.dataset.open==='activity'?'event/oil':'events'))}
  },true);
  const watcher=new MutationObserver(()=>normalize());watcher.observe(document.body,{childList:true,subtree:true});normalize();
 })();
