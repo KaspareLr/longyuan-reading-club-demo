@@ -39,6 +39,8 @@ window.renderOrdinaryPeriodical = function(m, issue) {
    .replace(/<button class="rd-button rd-primary" data-pe-buy[\s\S]*?<\/button>/,'')
    .replace(/<footer class="pe-source">[\s\S]*?<\/footer>/,'')
    .replace(/(<span class="pe-related-info">[\s\S]*?<\/span><\/span>)<small>[\s\S]*?<\/small>/g,'$1');
+  const identityActions=`<div class="pe-identity-resource-actions" aria-label="期刊阅读方式">${d?.trial?external('原貌版试读',d.trial,'pe-identity-original'):'<button type="button" class="pe-identity-original" data-rd-action="facsimile">原貌版试读</button>'}<button type="button" class="pe-identity-archive" data-rd-action="archive">过往期刊</button></div>`;
+  markup=markup.replace('</aside>',identityActions+'</aside>').replace(/<div class="pe-purchase-dock pe-figma-action-dock">[\s\S]*?<\/div><\/div>/,'');
  }
  return d&&!d.related.length?markup.replace(/<section class="pe-bottom-section"[\s\S]*?<\/section>/,''):markup;
 };
