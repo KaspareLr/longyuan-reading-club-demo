@@ -5,7 +5,7 @@
  const guide=(page,id)=>new URL('pages/index.html?nav=club#/magazine/'+e('南风窗')+'?claimed=1&page='+page+'&id='+e(id),base).href;
  function normalize(){
   document.querySelectorAll('a[href]').forEach(a=>{
-   if(a.dataset.clubLinked)return;const raw=a.getAttribute('href');
+   if(a.dataset.clubLinked||a.hasAttribute('data-template-resource'))return;const raw=a.getAttribute('href');
    const bid=raw.match(/#\/book\/([^?&#]+)/)?.[1];
    if(bid&&(raw.includes('icitychina')||raw.startsWith('#/book/'))){a.href=portal('book/'+bid);a.removeAttribute('target');a.dataset.clubLinked='1';return}
    if(a.closest('.daily-card')){const i=Array.from(document.querySelectorAll('.daily-card')).indexOf(a);a.href=portal('article/daily-'+i);a.removeAttribute('target');a.dataset.clubLinked='1';return}

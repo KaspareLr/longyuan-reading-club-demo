@@ -1,10 +1,10 @@
 /* Three scroll beats: full cover, centered reading card, then a short reading pause. */
 (()=>{
  const card=document.querySelector('#featured'),slot=card?.querySelector('.feature-cover .hinged-cover'),source=slot?.querySelector('img');
- if(!card||!slot||!source)return;
+ if(!card||!slot||!source||card.hidden)return;
  const reduce=matchMedia('(prefers-reduced-motion: reduce)');
  const stage=document.createElement('div');stage.className='feature-scroll-stage';card.before(stage);stage.append(card);
- const overlay=document.createElement('button');overlay.className='feature-scroll-cover';overlay.type='button';overlay.setAttribute('aria-label','查看第一财经领读');overlay.innerHTML='<img alt="">';overlay.firstElementChild.src=source.currentSrc||source.src;card.append(overlay);
+ const overlay=document.createElement('button');overlay.className='feature-scroll-cover';overlay.type='button';overlay.setAttribute('aria-label',card.querySelector('.feature-cover').getAttribute('aria-label')||'查看本期领读');overlay.innerHTML='<img alt="">';overlay.firstElementChild.src=source.currentSrc||source.src;card.append(overlay);
  const ring=card.querySelector('.progress-ring'),arc=ring.querySelector('.value'),label=card.querySelector('#progress-label'),targetProgress=Number(ring.getAttribute('aria-valuenow'))||0;
  const clamp=n=>Math.max(0,Math.min(1,n)),mix=(a,b,p)=>a+(b-a)*p;
  // Distances in CSS pixels. The pause uses native scrolling; wheel/touch input is never intercepted.
@@ -16,9 +16,9 @@
   function tick(now){if(start===undefined)start=now+180;const t=clamp((now-start)/1600);paintRing(targetProgress*(1-Math.pow(1-t,3)));if(t<1)ringFrame=requestAnimationFrame(tick);else{ringState='complete';ringFrame=0}}
   ringFrame=requestAnimationFrame(tick);
  }
- function measure(){card.classList.remove('feature-cover-unfolding');card.style.height='';card.style.transform='';const rect=card.getBoundingClientRect(),target=slot.getBoundingClientRect(),stageRect=stage.getBoundingClientRect();const centerTop=Math.max(104,(innerHeight-rect.height)/2);
+ function measure(){overlay.firstElementChild.src=source.currentSrc||source.src;overlay.setAttribute('aria-label',card.querySelector('.feature-cover').getAttribute('aria-label')||'查看本期领读');card.classList.remove('feature-cover-unfolding');card.style.height='';card.style.transform='';const rect=card.getBoundingClientRect(),target=slot.getBoundingClientRect(),stageRect=stage.getBoundingClientRect();const centerTop=Math.max(104,(innerHeight-rect.height)/2);
   metrics={top:stageRect.top+scrollY,width:rect.width,height:rect.height,x:target.left-rect.left,y:target.top-rect.top,w:target.width,h:target.height,radius:parseFloat(getComputedStyle(card).borderTopLeftRadius)||0};
-  metrics.fullHeight=Math.max(metrics.height,metrics.width/(source.naturalWidth/source.naturalHeight||14/19));metrics.start=Math.max(timing.startDelay,metrics.top-innerHeight*.78);metrics.pinStart=Math.max(0,metrics.top-centerTop);metrics.pinEnabled=innerWidth>1000&&metrics.height<innerHeight-150&&!reduce.matches;metrics.animateCover=!reduce.matches&&(metrics.pinEnabled||metrics.fullHeight<=metrics.height+1);
+  metrics.fullHeight=Math.max(metrics.height,metrics.width/(source.naturalWidth/source.naturalHeight||14/19));metrics.start=Math.max(timing.startDelay,metrics.top-innerHeight*.78);metrics.pinStart=Math.max(0,metrics.top-centerTop);metrics.pinEnabled=card.dataset.templateArticle!=='true'&&innerWidth>1000&&metrics.height<innerHeight-150&&!reduce.matches;metrics.animateCover=card.dataset.templateArticle!=='true'&&!reduce.matches&&(metrics.pinEnabled||metrics.fullHeight<=metrics.height+1);
   const pauseDistance=Math.max(timing.minPause,innerHeight*.45),minShrink=Math.max(timing.minShrink,Math.min(timing.maxShrink,innerHeight*.42));
   // Reserve once, outside scroll updates. The original full-cover height becomes
   // the scroll runway, so shrinking never moves the following sections or scrollbar.
@@ -33,6 +33,7 @@
   else{const bounds=card.getBoundingClientRect(),panel=card.querySelector('.feature-progress').getBoundingClientRect();const visible=metrics.pinEnabled?bounds.top>=80&&bounds.bottom<=innerHeight-24:panel.top>=80&&panel.bottom<=innerHeight-24;if(visible||reduce.matches)startRing()}
  }
 
+ window.clubFeatureCoverScroll={refresh:measure};
  function requestUpdate(){if(!frame)frame=requestAnimationFrame(update)}
  addEventListener('scroll',requestUpdate,{passive:true});addEventListener('resize',measure);reduce.addEventListener('change',()=>{resetRing();measure()});new ResizeObserver(entries=>{const width=entries[0].contentRect.width;if(Math.abs(width-lastWidth)>.5){lastWidth=width;measure()}}).observe(stage);source.addEventListener('load',measure);document.fonts?.ready.then(measure);resetRing();measure();
  overlay.addEventListener('click',event=>{event.stopPropagation();card.querySelector('.feature-cover').click()});
