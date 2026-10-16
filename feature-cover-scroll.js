@@ -4,7 +4,7 @@
  if(!card||!slot||!source||card.hidden)return;
  const reduce=matchMedia('(prefers-reduced-motion: reduce)');
  const stage=document.createElement('div');stage.className='feature-scroll-stage';card.before(stage);stage.append(card);
- const overlay=document.createElement('button');overlay.className='feature-scroll-cover';overlay.type='button';overlay.setAttribute('aria-label',card.querySelector('.feature-cover').getAttribute('aria-label')||'查看本期领读');overlay.innerHTML='<img alt="">';overlay.firstElementChild.src=source.currentSrc||source.src;card.append(overlay);
+ const overlay=document.createElement('button');overlay.className='feature-scroll-cover';overlay.type='button';overlay.setAttribute('aria-label',card.querySelector('.feature-cover').getAttribute('aria-label')||'查看本期领读');overlay.innerHTML='<img alt="">';overlay.firstElementChild.src=source.currentSrc||source.src;card.append(overlay);if(card.querySelector('.feature-cover').getAttribute('aria-disabled')==='true')overlay.setAttribute('aria-disabled','true');
  const ring=card.querySelector('.progress-ring'),arc=ring.querySelector('.value'),label=card.querySelector('#progress-label'),targetProgress=Number(ring.getAttribute('aria-valuenow'))||0;
  const clamp=n=>Math.max(0,Math.min(1,n)),mix=(a,b,p)=>a+(b-a)*p;
  // Distances in CSS pixels. The pause uses native scrolling; wheel/touch input is never intercepted.
@@ -28,7 +28,7 @@
  }
  function update(){frame=0;if(!metrics)return;const raw=metrics.animateCover?clamp((scrollY-metrics.start)/(metrics.end-metrics.start)):1,p=raw*raw*(3-2*raw),height=mix(metrics.fullHeight,metrics.height,p);
   card.style.height=(metrics.animateCover?height:metrics.height)+'px';card.style.setProperty('--feature-cover-progress',p.toFixed(4));stage.dataset.phase=raw<1?'cover':metrics.pinEnabled&&scrollY<=metrics.release?'reading':'continue';
-  const active=raw<1;card.classList.toggle('feature-cover-unfolding',active);overlay.hidden=!active;overlay.tabIndex=active?0:-1;card.querySelectorAll('.feature-copy,.feature-progress').forEach(el=>el.inert=active&&p<.84);
+  const active=raw<1;card.classList.toggle('feature-cover-unfolding',active);overlay.hidden=!active;overlay.tabIndex=active&&overlay.getAttribute('aria-disabled')!=='true'?0:-1;card.querySelectorAll('.feature-copy,.feature-progress').forEach(el=>el.inert=active&&p<.84);
   if(active){Object.assign(overlay.style,{left:mix(0,metrics.x,p)+'px',top:mix(0,metrics.y,p)+'px',width:mix(metrics.width,metrics.w,p)+'px',height:mix(metrics.fullHeight,metrics.h,p)+'px',borderRadius:mix(metrics.radius,4,p)+'px'});card.style.setProperty('--feature-details-opacity',clamp((p-.25)/.65).toFixed(4));if(raw<.98&&ringState!=='waiting')resetRing()}
   else{const bounds=card.getBoundingClientRect(),panel=card.querySelector('.feature-progress').getBoundingClientRect();const visible=metrics.pinEnabled?bounds.top>=80&&bounds.bottom<=innerHeight-24:panel.top>=80&&panel.bottom<=innerHeight-24;if(visible||reduce.matches)startRing()}
  }
