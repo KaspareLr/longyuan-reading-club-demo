@@ -127,5 +127,6 @@ main{max-width:1380px;padding:168px 10px 120px;margin:auto;display:flex;flex-dir
 
 /* Reserve native scroll space for the centered reading pause. */
 .feature-scroll-stage{position:relative;width:100%;min-width:0;overflow-anchor:none;isolation:isolate}
-.feature-scroll-stage>#featured{position:absolute;inset:0 0 auto;width:100%;margin:0;will-change:transform}
+.feature-scroll-stage>#featured{position:relative;inset:auto;width:100%;margin:0;transform:none}
+.feature-scroll-stage[data-pinned="true"]>#featured{position:sticky;top:var(--feature-pin-top,104px)}
 @media(prefers-reduced-motion:reduce){.feature-scroll-stage>#featured{will-change:auto}}
