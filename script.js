@@ -46,6 +46,5 @@
  document.addEventListener('submit',event=>{if(event.target.id!=='login-form')return;event.preventDefault();const nickname=event.target.elements.nickname.value.trim();if(!nickname)return;storage.set('nickname',nickname);document.querySelector('.login').textContent=nickname;close();toast('欢迎，'+nickname);});
  if(storage.get('nickname'))document.querySelector('.login').textContent=storage.get('nickname');if(storage.get('joined'))document.querySelector('.join').textContent='查看领读';
  const initialPanel=new URLSearchParams(location.search).get('panel');if(['member','login'].includes(initialPanel))document.querySelector('[data-open="'+initialPanel+'"]')?.click();
- const reduce=matchMedia('(prefers-reduced-motion: reduce)');
- if(!reduce.matches){let start;const arc=document.querySelector('.progress-ring .value'),label=document.querySelector('#progress-label');arc.style.strokeDashoffset=100;label.textContent='0%';function progress(now){if(!start)start=now;const t=Math.min(1,(now-start)/1300),value=Math.round((1-Math.pow(1-t,3))*100);arc.style.strokeDashoffset=100-value;label.textContent=value+'%';if(t<1)requestAnimationFrame(progress);}requestAnimationFrame(progress);}
+ // Featured progress is started by feature-cover-scroll.js once the card is centered.
 })();

@@ -1,15 +1,34 @@
-/* The first reading cover opens at card size and settles into its existing grid slot. */
+/* Three scroll beats: full cover, centered reading card, then a short reading pause. */
 (()=>{
  const card=document.querySelector('#featured'),slot=card?.querySelector('.feature-cover .hinged-cover'),source=slot?.querySelector('img');
  if(!card||!slot||!source)return;
  const reduce=matchMedia('(prefers-reduced-motion: reduce)');
- const overlay=document.createElement('button');overlay.className='feature-scroll-cover';overlay.type='button';overlay.dataset.open='reading';overlay.setAttribute('aria-label','查看第一财经领读');overlay.innerHTML='<img alt="">';const image=overlay.firstElementChild;image.src=source.currentSrc||source.src;card.append(overlay);
- let metrics,frame=0,lastWidth=0;
- const clamp=n=>Math.max(0,Math.min(1,n));const mix=(a,b,p)=>a+(b-a)*p;
- function measure(){card.classList.remove('feature-cover-unfolding');card.style.height='';const rect=card.getBoundingClientRect(),target=slot.getBoundingClientRect();const centerTop=Math.max(104,(innerHeight-rect.height)/2);metrics={top:rect.top+scrollY,width:card.clientWidth,height:card.clientHeight,x:target.left-rect.left,y:target.top-rect.top,w:target.width,h:target.height,radius:parseFloat(getComputedStyle(card).borderTopLeftRadius)||0};metrics.fullHeight=Math.max(metrics.height,metrics.width/(source.naturalWidth/source.naturalHeight||14/19));metrics.start=Math.max(0,metrics.top-innerHeight*.88);metrics.end=Math.max(metrics.start+80,metrics.top-centerTop);update()}
- function update(){frame=0;if(!metrics)return;const raw=reduce.matches?1:clamp((scrollY-metrics.start)/(metrics.end-metrics.start)),p=raw*raw*(3-2*raw);card.style.setProperty('--feature-cover-progress',p.toFixed(4));card.style.height=(reduce.matches?metrics.height:mix(metrics.fullHeight,metrics.height,p))+'px';const active=p<.999;card.classList.toggle('feature-cover-unfolding',active);overlay.hidden=!active;overlay.tabIndex=active?0:-1;card.querySelectorAll('.feature-copy,.feature-progress').forEach(el=>el.inert=active&&p<.84);if(!active)return;Object.assign(overlay.style,{left:mix(0,metrics.x,p)+'px',top:mix(0,metrics.y,p)+'px',width:mix(metrics.width,metrics.w,p)+'px',height:mix(metrics.fullHeight,metrics.h,p)+'px',borderRadius:mix(metrics.radius,4,p)+'px'});const details=clamp((p-.25)/.65);card.style.setProperty('--feature-details-opacity',details.toFixed(4))}
+ const stage=document.createElement('div');stage.className='feature-scroll-stage';card.before(stage);stage.append(card);
+ const overlay=document.createElement('button');overlay.className='feature-scroll-cover';overlay.type='button';overlay.setAttribute('aria-label','查看第一财经领读');overlay.innerHTML='<img alt="">';overlay.firstElementChild.src=source.currentSrc||source.src;card.append(overlay);
+ const ring=card.querySelector('.progress-ring'),arc=ring.querySelector('.value'),label=card.querySelector('#progress-label'),targetProgress=Number(ring.getAttribute('aria-valuenow'))||0;
+ const clamp=n=>Math.max(0,Math.min(1,n)),mix=(a,b,p)=>a+(b-a)*p;
+ // Distances in CSS pixels. The pause uses native scrolling; wheel/touch input is never intercepted.
+ const timing={startDelay:80,minShrink:300,maxShrink:420,minPause:320};
+ let metrics,frame=0,lastWidth=0,ringFrame=0,ringState='waiting';
+ function paintRing(value){arc.style.strokeDashoffset=100-value;label.textContent=Math.round(value)+'%';ring.setAttribute('aria-valuenow',String(Math.round(value)))}
+ function resetRing(){cancelAnimationFrame(ringFrame);ringFrame=0;ringState='waiting';paintRing(reduce.matches?targetProgress:0)}
+ function startRing(){if(ringState!=='waiting')return;if(reduce.matches){paintRing(targetProgress);ringState='complete';return}ringState='playing';let start;
+  function tick(now){if(start===undefined)start=now+180;const t=clamp((now-start)/1600);paintRing(targetProgress*(1-Math.pow(1-t,3)));if(t<1)ringFrame=requestAnimationFrame(tick);else{ringState='complete';ringFrame=0}}
+  ringFrame=requestAnimationFrame(tick);
+ }
+ function measure(){card.classList.remove('feature-cover-unfolding');card.style.height='';card.style.transform='';const rect=card.getBoundingClientRect(),target=slot.getBoundingClientRect(),stageRect=stage.getBoundingClientRect();const centerTop=Math.max(104,(innerHeight-rect.height)/2);
+  metrics={top:stageRect.top+scrollY,width:rect.width,height:rect.height,x:target.left-rect.left,y:target.top-rect.top,w:target.width,h:target.height,radius:parseFloat(getComputedStyle(card).borderTopLeftRadius)||0};
+  metrics.fullHeight=Math.max(metrics.height,metrics.width/(source.naturalWidth/source.naturalHeight||14/19));metrics.start=Math.max(timing.startDelay,metrics.top-innerHeight*.78);metrics.end=metrics.start+Math.max(timing.minShrink,Math.min(timing.maxShrink,innerHeight*.42));metrics.pinStart=Math.max(0,metrics.top-centerTop);metrics.pinEnabled=innerWidth>1000&&metrics.height<innerHeight-150&&!reduce.matches;metrics.release=Math.max(metrics.end,metrics.pinStart)+Math.max(timing.minPause,innerHeight*.45);metrics.travel=metrics.pinEnabled?metrics.release-metrics.pinStart:0;update()
+ }
+ function update(){frame=0;if(!metrics)return;const raw=reduce.matches?1:clamp((scrollY-metrics.start)/(metrics.end-metrics.start)),p=raw*raw*(3-2*raw),height=mix(metrics.fullHeight,metrics.height,p),offset=metrics.pinEnabled?Math.max(0,Math.min(metrics.travel,scrollY-metrics.pinStart)):0;
+  stage.style.height=(metrics.pinEnabled?Math.max(height+offset,metrics.height+metrics.travel):height)+'px';card.style.height=height+'px';card.style.transform=`translate3d(0,${offset}px,0)`;card.style.setProperty('--feature-cover-progress',p.toFixed(4));stage.dataset.phase=raw<1?'cover':metrics.pinEnabled&&scrollY<=metrics.release?'reading':'continue';
+  const active=raw<1;card.classList.toggle('feature-cover-unfolding',active);overlay.hidden=!active;overlay.tabIndex=active?0:-1;card.querySelectorAll('.feature-copy,.feature-progress').forEach(el=>el.inert=active&&p<.84);
+  if(active){Object.assign(overlay.style,{left:mix(0,metrics.x,p)+'px',top:mix(0,metrics.y,p)+'px',width:mix(metrics.width,metrics.w,p)+'px',height:mix(metrics.fullHeight,metrics.h,p)+'px',borderRadius:mix(metrics.radius,4,p)+'px'});card.style.setProperty('--feature-details-opacity',clamp((p-.25)/.65).toFixed(4));if(raw<.98&&ringState!=='waiting')resetRing()}
+  else{const bounds=card.getBoundingClientRect(),panel=card.querySelector('.feature-progress').getBoundingClientRect();const visible=metrics.pinEnabled?bounds.top>=80&&bounds.bottom<=innerHeight-24:panel.top>=80&&panel.bottom<=innerHeight-24;if(visible||reduce.matches)startRing()}
+ }
  function requestUpdate(){if(!frame)frame=requestAnimationFrame(update)}
- addEventListener('scroll',requestUpdate,{passive:true});addEventListener('resize',measure);reduce.addEventListener('change',measure);new ResizeObserver(entries=>{const width=entries[0].contentRect.width;if(Math.abs(width-lastWidth)>.5){lastWidth=width;measure()}}).observe(card);source.addEventListener('load',measure);document.fonts?.ready.then(measure);measure();
- // The existing cover remains the action source, preserving all reading navigation handlers.
+ addEventListener('scroll',requestUpdate,{passive:true});addEventListener('resize',measure);reduce.addEventListener('change',()=>{resetRing();measure()});new ResizeObserver(entries=>{const width=entries[0].contentRect.width;if(Math.abs(width-lastWidth)>.5){lastWidth=width;measure()}}).observe(stage);source.addEventListener('load',measure);document.fonts?.ready.then(measure);resetRing();measure();
  overlay.addEventListener('click',event=>{event.stopPropagation();card.querySelector('.feature-cover').click()});
+ addEventListener('pageshow',event=>{if(event.persisted){if(ringState==='playing')resetRing();measure()}});
+ addEventListener('pagehide',()=>{cancelAnimationFrame(frame);cancelAnimationFrame(ringFrame)});
 })();
