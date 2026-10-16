@@ -18,9 +18,8 @@
 .book-detail-refined .portal-tool>span{display:flex;flex-direction:column;gap:4px;width:100%}
 .book-detail-refined .portal-tool strong{font-size:14px;line-height:20px;font-weight:700;color:#131921}
 .book-detail-refined .portal-tool small{font-size:12px;line-height:16px;color:#909399}
-.book-detail-refined .book-contents-capabilities{align-items:center;flex-wrap:nowrap}
-.book-detail-refined .book-contents-read{margin-left:auto;align-self:center;white-space:nowrap;gap:4px}
+.book-detail-refined .book-contents-actions{display:flex;align-items:center;width:100%}
+.book-detail-refined .book-contents-read{margin-left:0;align-self:center;white-space:nowrap;gap:4px}
 .book-detail-refined .book-contents-note{font-size:11px;line-height:18px}
 @media(max-width:1536px){.book-detail-refined>section{padding-inline:20px}}
 @media(max-width:760px){.portal-book-content.book-detail-refined{gap:48px}.book-detail-refined>section{padding-inline:0}.book-detail-refined>.book-detail-byline{padding:0;justify-content:flex-start}.book-detail-refined .book-detail-tools h2{font-size:28px;line-height:36px}.book-detail-refined .portal-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:380px){.book-detail-refined .book-contents-capabilities{flex-wrap:wrap}.book-detail-refined .book-contents-read{flex-basis:100%;justify-content:flex-end}}
