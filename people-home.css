@@ -5,7 +5,7 @@
 .people-tone-definition{position:absolute;pointer-events:none}
 .people-hero-media{position:absolute;inset:0;z-index:-1;overflow:hidden;background:#131921;pointer-events:none}
 .people-hero-photo,.people-hero-original{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-.people-hero-photo{filter:saturate(.42) brightness(.84) hue-rotate(-5deg) url(#people-banner-tone)}
+.people-hero-photo{filter:none}
 .people-hero-shade{position:absolute;inset:0;background:radial-gradient(ellipse 66% 75% at 46% 40%,transparent 18%,#080e1699 100%),linear-gradient(90deg,#080e164d,transparent 35%,transparent 66%,#080e166b)}
 .people-hero-reveal{position:absolute;inset:0;opacity:0;transition:opacity 180ms ease-out;mask-image:radial-gradient(circle at var(--reveal-x,-100px) var(--reveal-y,-100px),#000 0 30px,#000c 42px,#0005 53px,transparent 68px);-webkit-mask-image:radial-gradient(circle at var(--reveal-x,-100px) var(--reveal-y,-100px),#000 0 30px,#000c 42px,#0005 53px,transparent 68px)}
 .people-guide-hero.is-revealing .people-hero-reveal{opacity:1}
@@ -65,3 +65,14 @@
 
 @media(hover:none){.people-hero-reveal{display:none}}
 @media(prefers-reduced-motion:reduce){.people-hero-reveal{transition:none}}
+
+/* The supplied finished images already include their grading and vignette. */
+.people-number-mask{display:inline-block;width:.62em;height:1lh;overflow:hidden;vertical-align:top}
+.people-number-roller{display:block;line-height:inherit}
+.people-number-roller>span{display:block;height:1lh;line-height:inherit}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+ .people-hero-photo,.people-hero-original{scale:1;transition:scale 1.2s cubic-bezier(.19,1,.22,1)}
+ .people-guide-hero.is-revealing .people-hero-photo,.people-guide-hero.is-revealing .people-hero-original{scale:1.025}
+ .people-home-link{transition:scale .65s cubic-bezier(.19,1,.22,1)}
+ .people-home-link:hover{scale:1.025 1.035}
+}
