@@ -46,15 +46,18 @@
 .portal-reader.night .portal-article-head h1{color:#eceff2}
 .portal-reader.night .reader-toc-article small,.portal-reader.night .reader-resource small{color:#c1c6ce}
 
-/* Figma 227:9414 — grouped glass reading controls. */
-.portal-reader-tools{right:20px;gap:16px;align-items:center;padding:4px;border:1px solid #ffffffcc;border-radius:100px;background:#ffffff33;backdrop-filter:blur(100px);box-shadow:0 7px 30px #252a3508,inset 0 1px #ffffff99}
+/* Figma 227:9214 — controls anchored inside the article. */
+.portal-reader-content{position:relative}
+.portal-reader-tools{position:absolute;right:16px;top:50%;transform:translateY(-50%);gap:16px;align-items:center;padding:4px;border:1px solid #ffffffcc;border-radius:100px;background:#ffffff33;backdrop-filter:blur(100px);box-shadow:0 7px 30px #252a3508,inset 0 1px #ffffff99}
 .portal-reader-tools .reader-tool-group{display:flex;flex-direction:column;align-items:center;gap:8px;padding:4px;border-radius:100px;background:#00000008;backdrop-filter:blur(100px);box-shadow:0 7px 30px #252a3508,inset 0 1px #ffffff99}
 .portal-reader-tools .reader-tool-section{display:flex;flex-direction:column;align-items:center;gap:8px}
-.portal-reader-tools button{width:34px;height:32px;padding:4px;border:1px solid #ffffffc9;border-radius:100px;background:#ffffffb3;backdrop-filter:blur(100px);box-shadow:0 7px 30px #252a3508,inset 0 1px #ffffff99}
-.portal-reader-tools [data-reader-scroll],.portal-reader-tools [data-save-article]{height:34px}
+.portal-reader-tools button{width:40px;height:40px;padding:7px;border:1px solid #ffffffc9;border-radius:100px;background:#ffffffb3;backdrop-filter:blur(100px);box-shadow:0 7px 30px #252a3508,inset 0 1px #ffffff99}
+.portal-reader-tools [data-reader-scroll],.portal-reader-tools [data-save-article]{height:40px}
 .portal-reader-tools button>img{display:block;max-width:none}
 .portal-reader-tools button>span:has(img){display:block;position:relative;flex:none;width:24px;height:24px}
 .portal-reader-tools button>span>img{position:absolute;left:6px;top:7px;max-width:none}
 .portal-reader-tools .reader-arrow-up{transform:rotate(-90deg) scaleY(-1)}
 .portal-reader-tools .reader-arrow-down{transform:rotate(90deg)}
-@media(max-width:760px){.portal-reader-tools{width:max-content;max-width:100%;margin:10px auto 0;gap:12px}.portal-reader-tools .reader-tool-group,.portal-reader-tools .reader-tool-section{flex-direction:row}}
+@media(max-width:760px){.portal-reader-tools{position:sticky;right:auto;top:100px;transform:none;width:max-content;max-width:100%;margin:10px auto 0;gap:8px}.portal-reader-tools .reader-tool-group,.portal-reader-tools .reader-tool-section{flex-direction:row}}
+
+@media(max-width:360px){.portal-reader-tools button{width:34px;height:34px;padding:4px}.portal-reader-tools [data-reader-scroll],.portal-reader-tools [data-save-article]{height:34px}}
