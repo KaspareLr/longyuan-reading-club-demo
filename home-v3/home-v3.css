@@ -377,3 +377,9 @@ body.home-v3 #podcasts .v3-audio input{background:linear-gradient(to right,#1319
  body.home-v3 .v3-recommendation-article .v3-recommendation-footer{grid-column:1/-1;grid-row:4;order:0;width:100%;gap:0;margin:0}
  body.home-v3 .v3-recommendation-article .v3-recommendation-read{width:100%;min-height:44px;padding:12px 20px;border-radius:12px;font-size:14px;line-height:22px;font-weight:500}
 }
+
+/* Mobile homepage refinement: softer canvas and larger featured book covers. */
+@media(max-width:760px){
+ html:has(body.home-v3),body.home-v3{background:#f5f7fa}
+ body.home-v3 #books-grid .book-art .book-cover{top:8px;height:calc(100% - 16px);aspect-ratio:2/3}
+}
