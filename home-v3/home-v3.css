@@ -383,3 +383,8 @@ body.home-v3 #podcasts .v3-audio input{background:linear-gradient(to right,#1319
  html:has(body.home-v3),body.home-v3{background:#f5f7fa}
  body.home-v3 #books-grid .book-art .book-cover{top:8px;height:calc(100% - 16px);aspect-ratio:2/3}
 }
+
+/* Mobile featured books: lift the cover above the soft page canvas. */
+@media(max-width:760px){
+ body.home-v3 #books-grid .book-art .book-cover>img{box-shadow:0 3px 7px #13192114,0 10px 20px #13192126}
+}
