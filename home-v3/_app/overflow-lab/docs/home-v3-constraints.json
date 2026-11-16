@@ -69,8 +69,10 @@
   "fields": {
     "recommendationTitle": {
       "maxCharacters": 32,
-      "maxLines": 2,
-      "overflow": "ellipsis-and-full-recommendation-dialog"
+      "maxLines": 3,
+      "overflow": "last-line-fade-and-single-field-dialog",
+      "desktopLines": 3,
+      "mobileLines": 3
     },
     "recommendationBody": {
       "maxCharacters": 140,

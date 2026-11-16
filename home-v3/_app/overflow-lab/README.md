@@ -1,3 +1,5 @@
+> 2026-11-16 GitHub更新：本轮代码与规范已同步，参见[发布记录](docs/DEPLOYMENT-20261116.md)。[公网快速入口](https://kasparelr.github.io/longyuan-reading-club-demo/home-v3/feature-review.html) · [超长文案验证](https://kasparelr.github.io/longyuan-reading-club-demo/home-v3/overflow-lab/overflow-check.html)。以下“未发布/仅本地”等为旧轮次记录。
+
 # 超长字段验证版
 
 入口：[验证场景列表](overflow-check.html)；本地预览：https://kasparelr.github.io/longyuan-reading-club-demo/home-v3/overflow-lab/overflow-check.html 。

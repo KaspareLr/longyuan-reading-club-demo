@@ -1,3 +1,5 @@
+> 2026-11-16 GitHub更新：本轮代码与规范已同步，参见[发布记录](docs/DEPLOYMENT-20261116.md)。[公网快速入口](https://kasparelr.github.io/longyuan-reading-club-demo/home-v3/feature-review.html) · [超长文案验证](https://kasparelr.github.io/longyuan-reading-club-demo/home-v3/overflow-lab/overflow-check.html)。以下“未发布/仅本地”等为旧轮次记录。
+
 # 龙源读书会 · V3首页探索分支
 
 这是独立的静态HTML/CSS/JavaScript项目，不覆盖原Demo。源目录没有Git仓库；发布使用独立Git工作副本。
