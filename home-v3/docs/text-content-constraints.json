@@ -1,30 +1,32 @@
 {
-  "schemaVersion": "1.0",
-  "status": "approved-design-target-not-implementation-claim",
-  "project": "龙源读书会原版",
+  "schemaVersion": "2.1",
+  "status": "v3-current-policy-see-TEXT-OVERFLOW-POLICY",
+  "project": "龙源读书会 home-v3",
   "countUnit": "unicode-grapheme-cluster",
   "normalization": "CRLF-to-LF-only; do-not-trim-or-normalize-user-content-silently",
   "sourceDataPolicy": "preserve-external-and-historical-content",
   "policies": {
     "F": {
       "meaning": "完整呈现",
-      "truncate": false,
-      "collapse": false
+      "truncate": false
     },
-    "P": {
-      "meaning": "列表预览",
-      "truncate": true,
-      "ifExactFieldUnavailableInDetail": "E"
-    },
-    "E": {
-      "meaning": "原位展开",
-      "truncateOnlyWhenCollapsed": true,
-      "buttonOnlyWhenActualOverflow": true
+    "I": {
+      "meaning": "点击遮罩原位展开",
+      "collapseControl": false
     },
     "M": {
-      "meaning": "身份与来源预览",
-      "truncate": true,
-      "ifExactFieldUnavailableInDetail": "E"
+      "meaning": "点击遮罩打开单字段全文弹窗",
+      "desktop": "centered-dialog",
+      "mobile": "bottom-sheet",
+      "iconOnlyClose": true
+    },
+    "E": {
+      "meaning": "列表标题及预览普通省略",
+      "sourceText": "preserve-full-DOM-text",
+      "visual": "CSS line-clamp ellipsis",
+      "fade": false,
+      "disclosure": false,
+      "click": "normal-item-navigation"
     }
   },
   "fields": [
@@ -38,7 +40,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "home.002",
@@ -47,10 +49,12 @@
       "authoringMax": 12,
       "sourceOverflow": "preserve",
       "previewChars": null,
-      "desktopLines": null,
-      "mobileLines": null,
-      "policy": "F",
-      "fullTextAccess": "inline"
+      "desktopLines": 1,
+      "mobileLines": 1,
+      "policy": "E",
+      "fullTextAccess": "none",
+      "visual": "single-line-ellipsis",
+      "fade": false
     },
     {
       "id": "home.003",
@@ -62,7 +66,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "home.004",
@@ -73,8 +77,8 @@
       "previewChars": 100,
       "desktopLines": 3,
       "mobileLines": 3,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "home.005",
@@ -86,7 +90,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "home.006",
@@ -98,7 +102,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "home.007",
@@ -109,8 +113,8 @@
       "previewChars": 12,
       "desktopLines": 1,
       "mobileLines": 1,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "M",
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "home.008",
@@ -122,7 +126,7 @@
       "desktopLines": 1,
       "mobileLines": 1,
       "policy": "M",
-      "fullTextAccess": "detail-or-inline-expand"
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "home.009",
@@ -133,8 +137,8 @@
       "previewChars": 32,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "M",
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "home.010",
@@ -146,7 +150,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "home.011",
@@ -157,8 +161,8 @@
       "previewChars": 80,
       "desktopLines": 3,
       "mobileLines": 3,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "home.012",
@@ -170,7 +174,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "home.013",
@@ -182,7 +186,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "home.014",
@@ -194,7 +198,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "home.015",
@@ -205,8 +209,10 @@
       "previewChars": 40,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "home.016",
@@ -218,7 +224,7 @@
       "desktopLines": 2,
       "mobileLines": 2,
       "policy": "M",
-      "fullTextAccess": "detail-or-inline-expand"
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "home.017",
@@ -230,7 +236,7 @@
       "desktopLines": 2,
       "mobileLines": 2,
       "policy": "M",
-      "fullTextAccess": "detail-or-inline-expand"
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "home.018",
@@ -241,8 +247,10 @@
       "previewChars": 24,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "home.019",
@@ -254,7 +262,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "home.020",
@@ -265,8 +273,8 @@
       "previewChars": 48,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "M",
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "home.021",
@@ -278,7 +286,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "home.022",
@@ -289,8 +297,10 @@
       "previewChars": 40,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "home.023",
@@ -302,7 +312,7 @@
       "desktopLines": 1,
       "mobileLines": 1,
       "policy": "M",
-      "fullTextAccess": "detail-or-inline-expand"
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "home.024",
@@ -313,8 +323,10 @@
       "previewChars": 48,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "home.025",
@@ -326,7 +338,7 @@
       "desktopLines": 1,
       "mobileLines": 1,
       "policy": "M",
-      "fullTextAccess": "detail-or-inline-expand"
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "home.026",
@@ -337,8 +349,10 @@
       "previewChars": 120,
       "desktopLines": 3,
       "mobileLines": 3,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "home.027",
@@ -349,8 +363,10 @@
       "previewChars": 40,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "home.028",
@@ -361,8 +377,10 @@
       "previewChars": 160,
       "desktopLines": 4,
       "mobileLines": 4,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "home.029",
@@ -373,8 +391,8 @@
       "previewChars": 100,
       "desktopLines": 3,
       "mobileLines": 3,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "home.030",
@@ -386,7 +404,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.031",
@@ -398,7 +416,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.032",
@@ -409,8 +427,8 @@
       "previewChars": 160,
       "desktopLines": 4,
       "mobileLines": 4,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "secondary.033",
@@ -422,7 +440,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.034",
@@ -434,7 +452,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.035",
@@ -443,10 +461,10 @@
       "authoringMax": 64,
       "sourceOverflow": "preserve",
       "previewChars": 40,
-      "desktopLines": 3,
-      "mobileLines": 3,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "desktopLines": 2,
+      "mobileLines": 2,
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation"
     },
     {
       "id": "secondary.036",
@@ -458,7 +476,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.037",
@@ -469,8 +487,8 @@
       "previewChars": 120,
       "desktopLines": 4,
       "mobileLines": 4,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "secondary.038",
@@ -481,8 +499,8 @@
       "previewChars": 100,
       "desktopLines": 3,
       "mobileLines": 3,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "M",
+      "fullTextAccess": "single-field-dialog"
     },
     {
       "id": "secondary.039",
@@ -493,8 +511,10 @@
       "previewChars": 40,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "secondary.040",
@@ -505,8 +525,8 @@
       "previewChars": 40,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "M",
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.041",
@@ -517,8 +537,8 @@
       "previewChars": 12,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "M",
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.042",
@@ -530,7 +550,7 @@
       "desktopLines": 2,
       "mobileLines": 2,
       "policy": "M",
-      "fullTextAccess": "detail-or-inline-expand"
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.043",
@@ -541,8 +561,8 @@
       "previewChars": 120,
       "desktopLines": 4,
       "mobileLines": 4,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "secondary.044",
@@ -553,8 +573,8 @@
       "previewChars": 500,
       "desktopLines": 8,
       "mobileLines": 8,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "secondary.045",
@@ -565,8 +585,8 @@
       "previewChars": 40,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "secondary.046",
@@ -577,8 +597,10 @@
       "previewChars": 48,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "secondary.047",
@@ -589,8 +611,10 @@
       "previewChars": 160,
       "desktopLines": 4,
       "mobileLines": 4,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "secondary.048",
@@ -602,7 +626,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.049",
@@ -613,8 +637,8 @@
       "previewChars": 500,
       "desktopLines": 4,
       "mobileLines": 4,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "secondary.050",
@@ -626,7 +650,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.051",
@@ -638,7 +662,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.052",
@@ -649,8 +673,8 @@
       "previewChars": 120,
       "desktopLines": 4,
       "mobileLines": 4,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "secondary.053",
@@ -659,10 +683,12 @@
       "authoringMax": 12,
       "sourceOverflow": "preserve",
       "previewChars": null,
-      "desktopLines": null,
-      "mobileLines": null,
-      "policy": "F",
-      "fullTextAccess": "inline"
+      "desktopLines": 1,
+      "mobileLines": 1,
+      "policy": "E",
+      "fullTextAccess": "none",
+      "visual": "single-line-ellipsis",
+      "fade": false
     },
     {
       "id": "secondary.054",
@@ -673,8 +699,8 @@
       "previewChars": 160,
       "desktopLines": 4,
       "mobileLines": 4,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "secondary.055",
@@ -686,7 +712,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.056",
@@ -698,7 +724,7 @@
       "desktopLines": 2,
       "mobileLines": 2,
       "policy": "M",
-      "fullTextAccess": "detail-or-inline-expand"
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.057",
@@ -710,7 +736,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.058",
@@ -721,8 +747,8 @@
       "previewChars": 800,
       "desktopLines": 6,
       "mobileLines": 6,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "secondary.059",
@@ -733,8 +759,8 @@
       "previewChars": 500,
       "desktopLines": 4,
       "mobileLines": 4,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "secondary.060",
@@ -745,8 +771,8 @@
       "previewChars": 20,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "M",
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.061",
@@ -758,7 +784,9 @@
       "desktopLines": 3,
       "mobileLines": 3,
       "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "secondary.062",
@@ -769,8 +797,8 @@
       "previewChars": 48,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "M",
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.063",
@@ -781,8 +809,8 @@
       "previewChars": 64,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "M",
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.064",
@@ -793,8 +821,10 @@
       "previewChars": 120,
       "desktopLines": 3,
       "mobileLines": 3,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "secondary.065",
@@ -805,8 +835,8 @@
       "previewChars": 48,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "M",
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.066",
@@ -818,7 +848,7 @@
       "desktopLines": 2,
       "mobileLines": 2,
       "policy": "M",
-      "fullTextAccess": "detail-or-inline-expand"
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.067",
@@ -830,7 +860,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.068",
@@ -842,7 +872,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.069",
@@ -853,8 +883,8 @@
       "previewChars": 12,
       "desktopLines": 1,
       "mobileLines": 1,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "M",
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.070",
@@ -865,8 +895,8 @@
       "previewChars": 40,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "M",
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.071",
@@ -878,7 +908,7 @@
       "desktopLines": 2,
       "mobileLines": 2,
       "policy": "M",
-      "fullTextAccess": "detail-or-inline-expand"
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.072",
@@ -889,8 +919,10 @@
       "previewChars": 48,
       "desktopLines": 3,
       "mobileLines": 3,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "secondary.073",
@@ -901,8 +933,10 @@
       "previewChars": 160,
       "desktopLines": 4,
       "mobileLines": 4,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "secondary.074",
@@ -913,8 +947,8 @@
       "previewChars": 48,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "M",
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.075",
@@ -925,8 +959,10 @@
       "previewChars": 160,
       "desktopLines": 4,
       "mobileLines": 4,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "secondary.076",
@@ -937,8 +973,8 @@
       "previewChars": 80,
       "desktopLines": 3,
       "mobileLines": 3,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "M",
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.077",
@@ -950,7 +986,7 @@
       "desktopLines": 2,
       "mobileLines": 2,
       "policy": "M",
-      "fullTextAccess": "detail-or-inline-expand"
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.078",
@@ -961,8 +997,8 @@
       "previewChars": 48,
       "desktopLines": 2,
       "mobileLines": 2,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "M",
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.079",
@@ -974,7 +1010,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.080",
@@ -986,7 +1022,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.081",
@@ -995,10 +1031,12 @@
       "authoringMax": 12,
       "sourceOverflow": "preserve",
       "previewChars": null,
-      "desktopLines": null,
-      "mobileLines": null,
-      "policy": "F",
-      "fullTextAccess": "inline"
+      "desktopLines": 1,
+      "mobileLines": 1,
+      "policy": "E",
+      "fullTextAccess": "none",
+      "visual": "single-line-ellipsis",
+      "fade": false
     },
     {
       "id": "secondary.082",
@@ -1010,7 +1048,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.083",
@@ -1021,8 +1059,8 @@
       "previewChars": 100,
       "desktopLines": 3,
       "mobileLines": 3,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "secondary.084",
@@ -1034,7 +1072,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.085",
@@ -1046,7 +1084,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.086",
@@ -1057,8 +1095,8 @@
       "previewChars": 120,
       "desktopLines": 4,
       "mobileLines": 4,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "secondary.087",
@@ -1069,8 +1107,8 @@
       "previewChars": 300,
       "desktopLines": 6,
       "mobileLines": 6,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "secondary.088",
@@ -1082,7 +1120,7 @@
       "desktopLines": 2,
       "mobileLines": 2,
       "policy": "M",
-      "fullTextAccess": "detail-or-inline-expand"
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.089",
@@ -1093,8 +1131,8 @@
       "previewChars": 48,
       "desktopLines": 3,
       "mobileLines": 3,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "M",
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.090",
@@ -1105,8 +1143,8 @@
       "previewChars": 500,
       "desktopLines": 6,
       "mobileLines": 6,
-      "policy": "E",
-      "fullTextAccess": "inline-expand"
+      "policy": "I",
+      "fullTextAccess": "click-faded-text-expand-inline"
     },
     {
       "id": "secondary.091",
@@ -1118,7 +1156,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.092",
@@ -1130,7 +1168,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     },
     {
       "id": "secondary.093",
@@ -1141,8 +1179,10 @@
       "previewChars": 48,
       "desktopLines": 3,
       "mobileLines": 3,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "secondary.094",
@@ -1153,8 +1193,10 @@
       "previewChars": 160,
       "desktopLines": 4,
       "mobileLines": 4,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "E",
+      "fullTextAccess": "normal-item-navigation",
+      "visualOverflow": "line-clamp-ellipsis",
+      "fade": false
     },
     {
       "id": "secondary.095",
@@ -1165,8 +1207,8 @@
       "previewChars": 12,
       "desktopLines": 1,
       "mobileLines": 1,
-      "policy": "P",
-      "fullTextAccess": "detail-or-inline-expand"
+      "policy": "M",
+      "fullTextAccess": "click-faded-text-field-dialog"
     },
     {
       "id": "secondary.096",
@@ -1178,7 +1220,7 @@
       "desktopLines": null,
       "mobileLines": null,
       "policy": "F",
-      "fullTextAccess": "inline"
+      "fullTextAccess": "full-inline"
     }
   ],
   "inputs": [
@@ -1273,7 +1315,7 @@
   ],
   "contextOverrides": [
     {
-      "when": "detail-page primary title, author, publisher, source, person name or role",
+      "when": "detail-page primary title (other content metadata follows containerResolution)",
       "policy": "F",
       "previewChars": null,
       "lines": null
@@ -1285,14 +1327,16 @@
       "lines": null
     },
     {
-      "when": "reading task contains required steps, due date or submission requirement",
-      "policy": "F",
+      "when": "task range/instructions or co-reading question in a task card (date/countdown remain full)",
+      "policy": "M",
       "previewChars": null,
-      "lines": null
+      "lines": 3,
+      "desktopLines": 3,
+      "mobileLines": 3
     },
     {
-      "when": "comment or note list without exact-record detail",
-      "policy": "E",
+      "when": "standalone comment or note without exact-record detail (inside a card use M)",
+      "policy": "I",
       "previewChars": 200,
       "desktopLines": 4,
       "mobileLines": 4
@@ -1309,5 +1353,76 @@
     "explicit field rules",
     "component defaults",
     "F as safe fallback"
-  ]
+  ],
+  "updated": "2026-11-16",
+  "displayOverflow": {
+    "indicator": "fade-lower-half-of-last-visible-line-only",
+    "actualOverflowOnly": true,
+    "preserveFullDOMText": true,
+    "ellipsis": false,
+    "visibleExpandOrCollapseButtons": false,
+    "canonicalSpec": "TEXT-OVERFLOW-POLICY.md",
+    "previewChars": "editorial-guidance-only-no-destructive-slicing"
+  },
+  "runtimeOverrides": "text-overflow.js determines mode per current container: fixed recommendation/card uses M, standalone prose uses I, main titles and critical information use F.",
+  "profileOverrides": {
+    "source": "ACCOUNT-SOURCE-PARITY.md",
+    "visibleFields": [
+      "avatar",
+      "nickname",
+      "email",
+      "interests"
+    ],
+    "emailMax": 150,
+    "interestsMax": 60,
+    "interestsMaxItems": 8,
+    "interestItemMax": 16,
+    "excludedFields": [
+      "city",
+      "bio"
+    ]
+  },
+  "previewPolicyPriority": "List summary/description/excerpt => E, even if historical markup says M. Independent recommendation body and detail prose keep F/I/M.",
+  "containerResolution": {
+    "priority": [
+      "system-copy-and-full-reading-body",
+      "list-title-or-excerpt-ellipsis",
+      "explicit-full-title-or-critical-fact",
+      "actual-card-container",
+      "standalone-content-field"
+    ],
+    "card": {
+      "policy": "M",
+      "lineBudget": "field-specific, bounded by card layout",
+      "visual": "last-line-lower-half-fade",
+      "click": "single-field-dialog"
+    },
+    "standalone": {
+      "policy": "I",
+      "lineBudget": "field-specific by content role",
+      "visual": "last-line-lower-half-fade",
+      "click": "expand-inline"
+    },
+    "legacyInlineModalMarkers": "do-not-override-container",
+    "preserveFullSourceText": true
+  },
+  "visualLimitSource": {
+    "file": "text-overflow-limits.css",
+    "property": "--to-limit",
+    "responsiveHomeProperty": "--v3-lines",
+    "runtime": "text-overflow.js reads computed CSS; legacy registration is fallback only",
+    "lastUpdated": "2026-11-16"
+  },
+  "homepageRecommendationHeadline": {
+    "field": "recommendationTitle",
+    "variants": [
+      "book",
+      "magazine",
+      "article"
+    ],
+    "desktopLines": 3,
+    "mobileLines": 3,
+    "policy": "M",
+    "cssFile": "text-overflow-limits.css"
+  }
 }

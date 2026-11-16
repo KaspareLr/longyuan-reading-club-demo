@@ -1,0 +1,114 @@
+/* Figma 592:2520: centered heading, combined search/type pill, inline result facets. */
+#portal-main[data-page=search]{max-width:960px;padding-top:156px}.cs-page{width:100%;margin:0 auto}.cs-heading{text-align:center;margin:0}.cs-heading>.club-overline{display:block;font-size:12px;line-height:18px;letter-spacing:.72px}.cs-heading h1{font-size:40px;line-height:52px;letter-spacing:-.8px;margin:10px 0 12px;color:#131921}.cs-heading p{font-size:16px;line-height:26px;color:#909399;margin:0}.cs-page .cf-search-form{padding:30px 0;margin:0;background:transparent}.cs-page .cf-search-input{display:flex;align-items:center;gap:20px;padding:4px 16px;border:1px solid #ffffffd9;border-radius:100px;background:#ffffffcc;backdrop-filter:blur(32px);box-shadow:0 12px 42px #22263212,inset 0 1px #fff}.cs-page .cf-search-input input{flex:1;min-width:0;width:auto;height:48px;padding:10px;border:0;background:transparent;color:#131921;font-size:16px;line-height:28px;box-shadow:none;outline:none}.cs-page .cf-search-input input::placeholder{color:#606266}.cs-page input[type=search]::-webkit-search-cancel-button{display:none}.cs-page .cf-search-input:focus-within{box-shadow:0 12px 42px #22263212,inset 0 1px #fff}.cs-page .cf-search-input .cs-clear-input{display:grid;place-items:center;flex:none;width:44px;height:44px;padding:10px;border:0;background:none;box-shadow:none;color:#131921;border-radius:50%}.cs-clear-input .iconfont{font-size:12px;line-height:24px}.cs-types{display:flex;align-items:center;gap:8px;padding-left:20px;border-left:1px solid #e4e7ed}.cs-page .cf-search-input .cs-types button{background:#fff;box-shadow:none;border:0;color:#606266;border-radius:100px;padding:6px 12px;height:32px;min-height:32px;white-space:nowrap;font-size:14px;font-weight:500;line-height:20px}.cs-page .cf-search-input .cs-types button[aria-pressed=true]{background:#fff;color:#131921;box-shadow:0 2px 3px #0000001a}.cs-page .cf-search-input .cs-submit{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden;white-space:nowrap;padding:0;border:0}.cs-page .cf-search-input .cs-submit:focus-visible{position:static;width:44px;height:44px;clip-path:none;background:#131921;color:#fff;border-radius:50%}.cs-recent,.cs-context{display:none}.cs-output{padding:0 40px;scroll-margin-top:130px}.cs-result-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:0}.cs-result-title{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}.cs-result-title h2{font-size:20px;line-height:28px;margin:0}.cs-result-title>span{font-size:12px;line-height:18px;color:#909399}.cs-facet-fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;flex:1;min-width:0}.cs-facet{display:block;position:relative;min-width:0}.cs-field-label{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}.cs-facet select{appearance:none;-webkit-appearance:none;width:100%;min-width:0;height:48px;background:#fff;border:0;border-radius:12px;box-shadow:0 2px 3px #0000001a;padding:12px 38px 12px 12px;font-size:14px;line-height:20px;font-weight:500;color:#131921;text-overflow:ellipsis;cursor:pointer}.cs-facet>.iconfont{position:absolute;right:12px;top:12px;width:24px;height:24px;display:grid;place-items:center;font-size:16px;pointer-events:none}.cs-facet select:disabled{opacity:.65;cursor:default}.cs-page button:focus-visible,.cs-facet select:focus-visible{outline:none;box-shadow:inset 0 0 0 2px #e4e7ed}.cs-page button{cursor:pointer}.cs-results{padding-top:20px}.cs-page .cf-result{display:flex;gap:20px;align-items:stretch;background:transparent;border-radius:0;border-bottom:1px solid #e4e7ed;padding:20px 0;text-decoration:none;color:#131921}.cs-page .cf-result .cs-result-copy{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:20px}.cs-page .cf-result .cs-result-copy>div{display:flex;flex-direction:column;gap:4px}.cs-page .cf-result h3{font-size:20px;line-height:32px;margin:0;font-weight:700}.cs-page .cf-result p{font-size:14px;line-height:20px;color:#909399;margin:0}.cs-page .cf-result small{font-size:12px;line-height:20px;color:#909399}.cs-page .cf-result .cs-result-copy>div>small{line-height:16px}.cs-page .cf-result:hover h3{color:#606266}.cs-page .cf-cover{flex-shrink:0;align-self:flex-start;object-fit:cover;width:88px;height:auto;aspect-ratio:2/3;border-radius:4px;box-shadow:0 8px 16px #21212112}.cs-page .cf-cover-杂志{aspect-ratio:14/19}.cs-page .cf-cover-播客{aspect-ratio:1}.cs-page mark{background:#f1e5c9;color:inherit;border-radius:2px}.cs-page .cf-pagination{margin-top:28px;gap:24px}.cs-page .cf-pagination button{border:0;background:#fff;border-radius:12px;box-shadow:0 2px 3px #0000001a;padding:12px;font-size:13px;font-weight:700}.cs-page .cf-pagination span{font-size:13px}.cs-page .cf-empty{padding:48px 20px}.cs-page .cf-empty button{border:0;background:#131921;color:white;padding:12px 20px;border-radius:20px}
+@media(min-width:761px) and (max-width:1050px){.cs-page .cf-search-input{gap:8px;padding-inline:12px}.cs-types{padding-left:12px;gap:4px}.cs-page .cf-search-input .cs-types button{padding-inline:10px}.cs-result-title{flex:.6}.cs-facet-fields{flex:1.4}.cs-output{padding-inline:20px}}
+@media(max-width:760px){#portal-main[data-page=search]{padding-top:104px}.cs-heading{text-align:left}.cs-heading h1{font-size:28px;line-height:38px;letter-spacing:-.5px}.cs-heading p{font-size:14px;line-height:24px}.cs-page .cf-search-form{padding:20px 0}.cs-page .cf-search-input{position:relative;flex-wrap:wrap;gap:0;padding:4px 12px 10px;border-radius:20px}.cs-page .cf-search-input input{height:44px;padding-left:4px}.cs-page .cf-search-input .cs-clear-input{width:40px;height:44px}.cs-types{order:3;flex:0 0 100%;border-left:0;border-top:1px solid #e4e7ed;padding:10px 0 0;gap:4px;justify-content:space-between}.cs-page .cf-search-input .cs-types button{height:44px;min-height:44px;padding:10px 12px}.cs-context:not(:empty){display:flex;justify-content:flex-end;margin-bottom:12px}.cs-filter-toggle{display:flex;gap:8px;align-items:center;border:0;background:#fff;min-height:44px;padding:10px 14px;border-radius:12px;font-size:14px}.cs-output{padding:0;scroll-margin-top:112px}.cs-result-heading{flex-wrap:wrap;gap:16px}.cs-result-title{flex:1 0 100%}.cs-result-title h2{font-size:18px;line-height:26px}.cs-facet-fields{display:none;flex:1 0 100%;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.cs-facet-fields[data-expanded]{display:grid}.cs-facet select{height:44px;font-size:14px}.cs-facet>.iconfont{top:10px}.cs-results{padding-top:10px}.cs-page .cf-result{gap:16px;padding:20px 0}.cs-page .cf-result h3{font-size:17px;line-height:26px}.cs-page .cf-result p{font-size:14px;line-height:22px}.cs-page .cf-cover{width:64px}.cs-page .cf-pagination button{min-height:44px}.cs-page .cf-result .cs-result-copy{gap:12px}}
+
+/* Figma 592:2520 updated: no selected-filter tag row or external active outline. */
+@media(min-width:761px){.cs-result-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:16px}.cs-facet-fields{grid-template-columns:repeat(4,minmax(0,1fr)) auto}.cs-page .cs-context{display:none}}
+.cs-reset-facets{display:flex;align-items:center;justify-content:center;gap:0;min-height:48px;padding:11px;border:1px solid #ffffffd9;border-radius:100px;background:#ffffffcc;backdrop-filter:blur(32px);box-shadow:0 12px 42px #22263212,inset 0 1px #fff;font-size:14px;line-height:20px;font-weight:500;white-space:nowrap;color:#131921}.cs-reset-facets>.iconfont{width:24px;height:24px;display:grid;place-items:center;font-size:20px}
+html body .cs-page :is(button,select):is(:focus,:active){outline:none}
+html body .cs-page .cs-types button[aria-pressed=true]{border:0;outline:none;box-shadow:0 2px 3px #0000001a}
+html body .cs-page .cs-types button[aria-pressed=true]:focus-visible{box-shadow:0 2px 3px #0000001a,inset 0 0 0 2px #e4e7ed}
+@media(max-width:760px){.cs-reset-facets{grid-column:1/-1;justify-self:end;min-height:44px;padding:9px 12px}}
+
+/* Unified listbox, Figma 597:2574 / 598:2643. Native popover keeps it above the header blur. */
+.cs-page .cs-facet-button{display:flex;align-items:center;gap:4px;width:100%;min-width:0;height:48px;padding:12px;border:0;border-radius:12px;background:#fff;box-shadow:0 2px 3px #0000001a;color:#131921;font-size:14px;line-height:20px;font-weight:500;text-align:left}
+.cs-facet-button>span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.cs-facet-button>.iconfont{display:grid;place-items:center;flex:none;width:24px;height:24px;font-size:16px;line-height:24px}.cs-facet-button[aria-expanded=true]{outline:none;border:0}
+.cs-select-menu{position:fixed;inset:auto;margin:0;padding:12px 8px;border:0;border-radius:12px;background:#fff;color:#131921;box-shadow:0 2px 6px #0000001a;box-sizing:border-box;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;z-index:1000;display:none}
+.cs-select-menu:popover-open{display:flex;flex-direction:column;align-items:stretch;gap:4px}.cs-select-menu::backdrop{background:transparent;pointer-events:none}
+html body .cs-select-menu>[role=option]{display:block;width:100%;flex:none;margin:0;padding:4px;border:0;border-radius:6px;background:transparent;color:#131921;text-align:left;font-size:14px;line-height:20px;font-weight:500;white-space:normal;overflow-wrap:anywhere;outline:none;box-shadow:none;cursor:pointer}
+html body .cs-select-menu>[role=option]:hover{background:#f5f7fa}html body .cs-select-menu>[role=option][aria-selected=true]{background:#e4e7ed}html body .cs-select-menu>[role=option]:focus-visible{box-shadow:inset 0 0 0 2px #c6cad2;outline:none}
+html body .cs-page .cs-facet-button:focus-visible{outline:none;box-shadow:0 2px 3px #0000001a,inset 0 0 0 2px #e4e7ed}
+@media(max-width:760px){.cs-page .cs-facet-button{height:44px;padding-block:10px}html body .cs-select-menu>[role=option]{min-height:44px;padding-block:12px}}
+
+.cs-page .cf-search-input .cs-clear-input[hidden]{display:none!important}.cs-clear-glyph{display:grid;place-items:center;width:24px;height:24px}.cs-clear-input .cs-clear-glyph>.iconfont{display:grid;place-items:center;width:24px;height:24px;font-size:7.731px;line-height:1}
+@media(min-width:761px){#portal-main[data-page=search]{padding-top:100px}.cs-page .cf-search-form{padding-top:40px;padding-bottom:80px}}
+/* Default and active search are the same surface; focus reveals the history inside it. */
+.cs-page .cs-search-surface{width:100%;box-sizing:border-box;padding:4px 16px;border:1px solid #ffffffd9;border-radius:28px;background:#ffffffcc;backdrop-filter:blur(32px);box-shadow:0 12px 42px #22263212,inset 0 1px #fff}
+.cs-page .cs-search-surface .cf-search-input{padding:0;border:0;border-radius:0;background:transparent;backdrop-filter:none;box-shadow:none;gap:20px}
+.cs-page .cs-search-surface .cf-search-input:focus-within{box-shadow:none}.cs-search-surface .cs-types{padding-block:8px}
+.cs-page .cs-recent{display:block;margin:0;padding:0;font-size:14px;color:#131921;max-height:260px;overflow-y:auto;overscroll-behavior:contain}
+.cs-page .cs-recent[hidden]{display:none!important}.cs-recent>p#cs-history-title{padding:0 10px;margin:0;font-size:12px;line-height:16px;color:#606266;font-weight:400}
+.cs-history-row{display:flex;align-items:center;gap:12px;padding:0 10px;min-width:0}.cs-page .cs-history-row>button{border:0;background:transparent;box-shadow:none;border-radius:6px;color:#131921;margin:0}
+.cs-history-row>button[data-cs-query]{flex:1;min-width:0;padding:6px 0;font-size:14px;line-height:24px;font-weight:700;text-align:left;white-space:normal;overflow-wrap:anywhere}
+.cs-page .cs-history-row>.cs-history-remove{flex:none;width:36px;height:36px;display:grid;place-items:center;padding:6px}.cs-history-row:hover{background:#f5f7fa;border-radius:6px}
+.cs-page .cs-history-empty{font-size:14px;line-height:24px;color:#909399;padding:6px 10px;margin:0}
+.cs-history-remove .iconfont,.cs-clear-input .cs-clear-glyph>.iconfont{display:grid;place-items:center;width:24px;height:24px;font-size:16px;line-height:1}
+.cs-select-menu:popover-open{gap:10px}
+@media(max-width:760px){.cs-page .cs-search-surface{padding:4px 12px 10px;border-radius:20px}.cs-page .cs-search-surface .cf-search-input{padding:0;gap:0}.cs-search-surface .cs-types{padding-top:10px;padding-bottom:0}.cs-page .cs-recent{padding-top:12px}.cs-history-row>button[data-cs-query]{padding-block:10px}.cs-page .cs-history-row>.cs-history-remove{width:44px;height:44px;padding:10px}}
+
+/* No reserved reset space when inactive. Keep shadows visible while animating. */
+.cs-facet-fields{display:flex;gap:10px;align-items:flex-start}.cs-facet-fields>.cs-facet{flex:1;min-width:0}
+.cs-reset-slot{display:block;flex:0 0 108px;width:108px;max-width:0;margin-left:-10px;overflow:visible;opacity:0;transform:translateX(8px);pointer-events:none;transition:max-width 220ms cubic-bezier(.2,.7,.2,1),margin-left 220ms cubic-bezier(.2,.7,.2,1),opacity 180ms ease,transform 220ms cubic-bezier(.2,.7,.2,1)}
+.cs-reset-slot.is-active{max-width:108px;margin-left:0;opacity:1;transform:translateX(0);pointer-events:auto}.cs-reset-slot .cs-reset-facets{width:108px}
+@media(max-width:760px){.cs-facet-fields{display:none}.cs-facet-fields[data-expanded]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.cs-reset-slot{grid-column:1/-1;justify-self:end;margin-left:0;max-height:0;margin-top:-12px;transition:max-height 220ms ease,margin-top 220ms ease,opacity 180ms ease,transform 220ms ease}.cs-reset-slot.is-active{max-height:44px;margin-top:0}.cs-reset-slot .cs-reset-facets{min-height:44px}}
+@media(prefers-reduced-motion:reduce){.cs-reset-slot{transition:none;transform:none}}
+/* Figma 613:6434 / 613:6657: right-aligned filters, stable widths in both states. */
+@media(min-width:761px){
+ .cs-result-heading{container-type:inline-size;grid-template-columns:repeat(4,minmax(0,1fr))}
+ .cs-result-title{grid-column:1}
+ .cs-facet-fields{grid-column:2/span 3;width:100%;max-width:100%;justify-content:flex-end;justify-self:stretch;align-items:center;flex:none}
+ .cs-facet-fields>.cs-facet{flex:0 0 min(128px,calc(18.75cqw - 38px));width:min(128px,calc(18.75cqw - 38px))}
+ .cs-page .cs-facet-button{box-shadow:0 2px 6px #0000001a}
+ .cs-reset-facets{padding:11px 16px 11px 10px;box-sizing:border-box}
+}
+
+/* Mobile results toolbar: title and filter share one row, facets expand below. */
+.cs-result-heading>.cs-filter-toggle{display:none}
+@media(max-width:760px){
+ .cs-page .cs-context{display:none!important}
+ .cs-result-heading{align-items:center;gap:12px}
+ .cs-result-title{flex:1 1 0;min-width:0}
+ .cs-result-heading>.cs-filter-toggle{display:flex;align-items:center;justify-content:center;flex:none;gap:8px;min-height:44px;padding:10px 12px;font-size:14px;line-height:20px;border-radius:12px;white-space:nowrap;background:#fff;box-shadow:0 2px 6px #0000000d}
+ .cs-filter-toggle>.iconfont{display:grid;place-items:center;width:20px;height:20px;font-size:20px;line-height:20px}
+ .cs-filter-toggle>.iconfont:last-child{width:16px;font-size:16px}
+ .cs-facet-fields[data-expanded]{flex:1 0 100%;margin-top:4px}
+ .cs-result-title>span{font-size:12px;line-height:18px}
+}
+@media(max-width:760px){
+ .cs-page .cs-search-surface .cf-search-input{flex-wrap:wrap}
+ .cs-page .cs-search-surface .cf-search-input input{flex:1 1 calc(100% - 44px);width:auto;min-width:0;height:44px}
+ .cs-page .cs-search-surface .cs-types{flex:0 0 100%;width:100%;box-sizing:border-box}
+}
+/* Mobile search, Figma 615:6930. Resource tabs sit outside the input surface. */
+.cs-mobile-result-types{display:none}
+.cs-filter-sheet{position:fixed;inset:auto 0 0;width:100%;max-width:none;max-height:85dvh;margin:0;padding:0;border:0;border-radius:24px 24px 0 0;background:#fff;color:#131921;box-shadow:0 -12px 48px #13192120;overflow:hidden;box-sizing:border-box}
+.cs-filter-sheet::backdrop{background:#13192155;backdrop-filter:blur(8px)}
+.cs-filter-sheet[open]{display:flex;flex-direction:column;animation:cs-sheet-enter 220ms cubic-bezier(.2,.8,.2,1)}
+.cs-filter-sheet>header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px;border-bottom:1px solid #e4e7ed;flex:none}
+.cs-filter-sheet h2{font-size:20px;line-height:28px;margin:0;color:#131921}
+.cs-filter-sheet button{font:inherit;cursor:pointer;color:#131921}
+.cs-filter-sheet [data-sheet-close]{display:grid;place-items:center;flex:none;width:44px;height:44px;border:0;background:#f5f7fa;border-radius:50%;padding:10px}
+.cs-filter-sheet [data-sheet-close]>.iconfont{font-size:20px;line-height:24px}
+.cs-sheet-fields{display:grid;grid-template-columns:minmax(0,1fr);gap:20px 12px;padding:24px 20px;overflow:auto;overscroll-behavior:contain;min-height:0}
+.cs-sheet-field{display:flex;flex-direction:column;gap:10px;min-width:0;font-size:14px;line-height:20px;color:#606266}
+.cs-sheet-field .cs-facet-button{display:flex;align-items:center;gap:4px;width:100%;min-width:0;min-height:48px;padding:12px;border:0;border-radius:12px;background:#f5f7fa;font-size:14px;line-height:20px;text-align:left;box-sizing:border-box}
+.cs-filter-sheet>footer{display:flex;align-items:center;gap:12px;border-top:1px solid #e4e7ed;padding:16px 20px calc(16px + env(safe-area-inset-bottom));flex:none}
+.cs-filter-sheet>footer>button{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 16px;border:0;border-radius:12px;background:#f5f7fa;font-size:14px;line-height:20px;font-weight:600}
+.cs-filter-sheet>footer>[data-sheet-done]{flex:1;background:#131921;color:#fff}.cs-filter-sheet [hidden]{display:none!important}
+.cs-filter-sheet :focus-visible{outline:0;box-shadow:inset 0 0 0 2px #c0c4cc}
+@keyframes cs-sheet-enter{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.cs-filter-sheet[open]{animation:none}}
+@media(max-width:760px){
+ .portal-body #portal-main[data-page=search]{padding-top:82px}
+ .cs-page .cf-search-form{display:flex;flex-direction:column;gap:10px;padding:20px 0}
+ .cs-page .cf-search-input .cs-types{display:none!important}
+ .cs-page .cs-search-surface{padding:4px 16px;border-radius:28px}
+ .cs-page .cs-search-surface .cf-search-input{flex-wrap:nowrap;gap:0}
+ .cs-page .cs-search-surface .cf-search-input input{flex:1 1 0%;width:0;height:48px;padding:10px!important;font-size:16px;line-height:28px}
+ .cs-page .cs-search-surface .cs-clear-input{width:44px;height:44px;flex:none;padding:10px}
+ .cs-result-heading{display:flex;flex-wrap:nowrap;gap:12px;align-items:center;min-height:48px}
+ .cs-result-title{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%)}
+ .cs-mobile-result-types{display:flex;align-items:center;flex:1;min-width:0;gap:clamp(4px,1.8vw,8px);padding:8px 0;overflow-x:auto;scrollbar-width:none}
+ .cs-mobile-result-types button{flex:none;height:32px;min-height:32px;padding:6px clamp(8px,2.7vw,12px);border:0;border-radius:100px;background:#fff;color:#606266;box-shadow:none;font:inherit;font-size:14px;line-height:20px;font-weight:500;white-space:nowrap}
+ .cs-mobile-result-types button[aria-pressed=true]{color:#fff;background:#131921;box-shadow:0 2px 6px #0000001a}
+ .cs-result-heading>.cs-filter-toggle{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;min-height:48px;padding:11px;gap:0;border:1px solid #ffffffd9;border-radius:50%;background:#ffffffcc;backdrop-filter:blur(32px);box-shadow:0 12px 42px #22263212,inset 0 1px #fff;position:relative}
+ .cs-result-heading>.cs-filter-toggle>.iconfont,.cs-result-heading>.cs-filter-toggle>.iconfont:last-child{display:grid;place-items:center;width:24px;height:24px;font-size:24px;line-height:24px}
+ .cs-filter-toggle[data-active]::after{content:'';position:absolute;right:5px;top:5px;width:6px;height:6px;background:#131921;border:2px solid #fff;border-radius:50%}
+ .cs-page .cs-facet-fields,.cs-page .cs-facet-fields[data-expanded]{display:none!important}
+}
+/* Give the history heading separation from both input and first result. */
+.cs-page .cs-recent{padding-top:12px}
+.cs-recent>p#cs-history-title{margin-bottom:8px}
+.cs-history-row+.cs-history-row{margin-top:4px}
+.cs-page .cs-search-surface.is-history-open{padding-bottom:12px}

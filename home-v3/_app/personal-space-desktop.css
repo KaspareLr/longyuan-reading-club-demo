@@ -1,0 +1,87 @@
+/* Figma 601:3112. Desktop-only account shell; phone retains its own hub. */
+@media(min-width:761px){
+ body:has(#portal-main[data-page=me] .cf-desktop-identity){background:#fff}
+ #portal-main[data-page=me]:has(.cf-desktop-identity){max-width:1360px;padding-top:168px;padding-bottom:80px}
+ .cf-desktop-identity{display:flex;flex-direction:column;align-items:center;gap:20px;margin:0 0 40px;padding:0}
+ .cf-desktop-person{display:flex;flex-direction:column;align-items:center;gap:20px;max-width:760px;width:100%}
+ .cf-desktop-avatar{display:block;width:120px;height:120px;object-fit:cover;border-radius:50%;flex:none}
+ .cf-desktop-person h1{font-size:20px;line-height:32px;font-weight:700;color:#131921;text-align:center;margin:0;overflow-wrap:anywhere}
+ .cf-desktop-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;width:100%;max-width:760px;padding:0 20px;box-sizing:border-box}
+ .cf-desktop-stats article{background:#f5f7fa;border-radius:20px;padding:16px 24px;display:flex;flex-direction:column;text-align:center}
+ .cf-desktop-stats strong{font-size:32px;line-height:38px;font-weight:700;color:#131921}
+ .cf-desktop-stats small{font-size:12px;line-height:16px;color:#909399}
+ #portal-main[data-page=me] .portal-account{display:grid;grid-template-columns:minmax(0,280px) minmax(0,760px);justify-content:center;align-items:start;gap:40px}
+ #portal-main[data-page=me] .portal-account-side{position:static;max-height:none;overflow:visible;background:none;border:0;border-radius:0;padding:8px 0}
+ #portal-main[data-page=me] .portal-account-side>:is(.portal-account-avatar,h2,p){display:none}
+ #portal-main[data-page=me] .portal-account-side nav{display:flex;flex-direction:column;align-items:stretch;gap:4px}
+ #portal-main[data-page=me] .portal-account-side nav button{display:flex;align-items:center;justify-content:flex-start;gap:8px;width:100%;min-height:42px;padding:10px 16px;border:0;border-radius:12px;background:none;box-shadow:none;color:#606266;font-size:14px;line-height:20px;font-weight:500;white-space:nowrap}
+ #portal-main[data-page=me] .portal-account-side nav button>.iconfont{display:grid;place-items:center;width:20px;height:20px;font-size:20px;line-height:20px;flex:none}
+ #portal-main[data-page=me] .portal-account-side nav button[aria-pressed=true]{background:#f0f2f5;color:#131921;font-weight:600}
+ #portal-main[data-page=me] .portal-account-side nav button:hover{background:#f5f7fa}
+ #portal-main[data-page=me] .portal-account-side nav [data-logout]{display:none}
+ #portal-main[data-page=me] .portal-account-panel{min-width:0;background:#fff;border:1px solid #e4e7ed;border-radius:20px;padding:24px 30px;box-sizing:border-box;color:#131921}
+ #portal-main[data-page=me] .portal-account-panel>h2,#portal-main[data-page=me] .portal-account-panel>.cf-panel-heading{display:flex;align-items:center;min-height:53px;padding:10px 0;margin:0;border-bottom:1px solid #e4e7ed;box-sizing:border-box;gap:16px}
+ #portal-main[data-page=me] .portal-account-panel h2{font-size:20px;line-height:32px;font-weight:700;margin:0}
+ #portal-main[data-page=me] .portal-account-panel h3{font-size:18px;line-height:28px;margin:0 0 8px}
+ #portal-main[data-page=me] .portal-account-panel .button{min-height:40px;padding:8px 16px;border-radius:12px;font-size:14px;line-height:20px;box-shadow:0 2px 3px #0000001a}
+ #portal-main[data-page=me] .portal-account-panel .club-overline{font-size:12px;line-height:16px}
+ #portal-main[data-page=me] .portal-account-panel .cf-panel-heading>div>.club-overline{display:none}
+ #portal-main[data-page=me] .portal-profile-form{display:flex;flex-direction:column;gap:0}
+ #portal-main[data-page=me] .portal-profile-form>label,#portal-main[data-page=me] .cf-avatar-field{display:flex;flex-direction:column;gap:10px;position:relative;padding:20px 0;margin:0;font-size:14px;line-height:20px;min-width:0}
+ #portal-main[data-page=me] .portal-profile-form>label>.field-limit-counter{top:20px;right:0;font-size:12px;line-height:16px;margin:0}
+ #portal-main[data-page=me] .portal-profile-form>label>input{height:50px;padding:10px 12px;border:1px solid #e4e7ed;border-radius:12px;background:#fafbfc;font-size:16px;line-height:28px;color:#131921;box-shadow:none}
+ #portal-main[data-page=me] .portal-profile-form label>small:not(.field-limit-counter){font-size:12px;line-height:16px;margin:0;color:#909399}
+ #portal-main[data-page=me] .cf-avatar-label{font-size:14px;line-height:20px;margin:0}
+ #portal-main[data-page=me] .cf-avatar-editor{display:flex;align-items:center;gap:20px;margin:0}
+ #portal-main[data-page=me] .cf-avatar-editor>img{width:64px;height:64px;object-fit:cover;flex:none;border-radius:50%}
+ #portal-main[data-page=me] .cf-avatar-editor>div{flex:1;min-width:0}
+ #portal-main[data-page=me] .cf-avatar-editor .button{font-weight:700}
+ #portal-main[data-page=me] .cf-avatar-editor [data-avatar-default]{min-height:40px;padding:8px 16px;margin-left:10px;font-size:14px;line-height:20px;font-weight:700;border-radius:12px}
+ #portal-main[data-page=me] .cf-avatar-editor p{margin:10px 0 0;font-size:12px;line-height:16px;color:#909399}
+ #portal-main[data-page=me] .portal-profile-form>.button{align-self:flex-start;min-height:48px;padding:14px 32px;margin:20px 0;font-weight:500}
+ #portal-main[data-page=me] .portal-profile-form>.portal-form-status:empty{display:none}
+ #portal-main[data-page=me] .portal-account[data-account-tab=overview] .portal-account-panel>.portal-stat-grid{display:none}
+ #portal-main[data-page=me] .portal-account-panel>.club-overline{display:none}
+ #portal-main[data-page=me] .portal-account-panel .portal-section{margin-top:24px}
+ #portal-main[data-page=me] .portal-account-panel .portal-section-heading{padding:10px 0;margin-bottom:20px;border-bottom:1px solid #e4e7ed}
+ #portal-main[data-page=me] .portal-account-panel .portal-account-membership{padding:24px;margin:20px 0;border-radius:20px}
+ #portal-main[data-page=me] .portal-account-panel .portal-account-membership h3{font-size:20px;line-height:32px}
+ #portal-main[data-page=me] .portal-account-panel .portal-facts{font-size:14px;line-height:24px}
+ #portal-main[data-page=me] .portal-account-panel .cf-panel-description{font-size:14px;line-height:24px;margin:20px 0}
+ #portal-main[data-page=me] .portal-account-panel .cf-result{padding:20px 0;gap:20px}
+ #portal-main[data-page=me] .portal-account-panel .cf-result h3{font-size:18px;line-height:28px;margin:4px 0}
+ #portal-main[data-page=me] .portal-account-panel .cf-result p{font-size:14px;line-height:24px;margin:0;color:#909399}
+ #portal-main[data-page=me] .portal-account-panel .cf-order,#portal-main[data-page=me] .portal-account-panel .cf-group-card{padding:20px;border-radius:20px;margin:20px 0;background:#f5f7fa}
+ #portal-main[data-page=me] .portal-account-panel .cf-order>div>strong{font-size:24px;line-height:32px}
+ #portal-main[data-page=me] .portal-account-panel .portal-chapter-link{padding:20px 0;gap:20px;border-radius:0;background:transparent;font-size:16px;line-height:28px;min-height:0}
+ #portal-main[data-page=me] .portal-account-panel .portal-chapter-link>strong{flex:1;min-width:0}
+ #portal-main[data-page=me] .portal-account-panel .cf-empty,#portal-main[data-page=me] .portal-account-panel .portal-empty{padding:40px 20px;background:transparent;border-radius:0}
+ #portal-main[data-page=me] .portal-account-panel :is(button,a,input):focus-visible{outline:0;box-shadow:inset 0 0 0 2px #c0c4cc}
+}
+@media(min-width:761px) and (max-width:1050px){
+ #portal-main[data-page=me] .portal-account{grid-template-columns:minmax(164px,200px) minmax(0,760px);gap:24px}
+ #portal-main[data-page=me] .portal-account-panel{padding:24px}
+}
+/* Per-page composition from the revised account designs. */
+@media(min-width:761px){
+ #portal-main[data-page=me] .portal-account:not([data-account-tab=profile]) .portal-account-panel{padding:16px 30px}
+ #portal-main[data-page=me] .portal-account-panel>.pd-block{padding:20px 0;margin:0;display:flex;flex-direction:column;gap:10px}
+ #portal-main[data-page=me] .portal-account-panel .pd-label{font-size:14px;line-height:20px;font-weight:400;margin:0}
+ #portal-main[data-page=me] .portal-account-panel .pd-link-card{display:flex;align-items:center;gap:20px;width:100%;padding:12px 16px;border-radius:16px;background:#fff;box-shadow:0 2px 6px #0000001a;text-decoration:none;color:#131921;box-sizing:border-box}
+ .pd-link-card>div{flex:1;min-width:0}.pd-link-card strong{display:block;font-size:16px;line-height:28px;font-weight:600}.pd-link-card p{margin:0;font-size:14px;line-height:24px;color:#606266}
+ .pd-arrow{display:grid;place-items:center;flex:none;width:32px;height:32px;padding:4px;box-sizing:border-box}.pd-arrow .iconfont{display:grid;place-items:center;width:24px;height:24px;font-size:16px;line-height:24px}
+ #portal-main[data-page=me] .portal-account-panel .pd-member{display:flex;flex-direction:column;gap:40px;width:100%;max-width:480px;padding:20px;background:#131921;color:#fff;border-radius:16px;box-shadow:0 2px 6px #0000001a;box-sizing:border-box}
+ .pd-member>header,.pd-order>header,.pd-group-banner{display:flex;align-items:center;justify-content:space-between;gap:20px}.pd-member>header>div,.pd-order>header>div,.pd-group-banner>div{min-width:0;flex:1}
+ #portal-main[data-page=me] .portal-account-panel :is(.pd-member,.pd-order,.pd-group-banner) h3{font-size:16px;line-height:28px;font-weight:600;margin:0}
+ .pd-member p,.pd-order p,.pd-group-banner p{font-size:14px;line-height:24px;margin:0;color:#c0c4cc}
+ #portal-main[data-page=me] .pd-member .button,#portal-main[data-page=me] .pd-group-banner .button{flex:none;min-height:36px;padding:8px 16px;background:#fff;color:#131921;font-size:14px;line-height:20px;font-weight:700;text-decoration:none;border:0}
+ .pd-facts{display:flex;flex-direction:column;gap:20px;margin:0;width:100%;font-size:14px;line-height:24px}.pd-facts>div{display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid #e4e7ed;padding:0 0 10px}.pd-facts>div:last-child{border-bottom:0}.pd-facts dt{width:80px;flex:none;color:#909399}.pd-facts dd{flex:1;min-width:0;margin:0;overflow-wrap:anywhere}
+ .pd-member .pd-facts dt{color:#c0c4cc}.pd-member .pd-facts>div{border-color:#ffffff33}.portal-account[data-account-tab=overview] .pd-member .pd-facts>div:last-child{border-bottom:1px solid #ffffff33}
+ .pd-order{display:flex;flex-direction:column;gap:40px;background:#f5f7fa;padding:20px;border-radius:16px;box-shadow:0 2px 6px #0000001a}.pd-order p{color:#606266}.pd-order>header>strong{font-size:24px;line-height:32px;font-weight:700}
+ .pd-group-banner{background:#131921;color:#fff;padding:12px 16px;border-radius:16px;box-shadow:0 2px 6px #0000001a}
+ .portal-account[data-account-tab=groups] .pd-block+.pd-block{margin-top:10px}
+ .pd-link-list{gap:10px}.pd-empty{font-size:14px;line-height:24px;color:#909399;padding:20px 0;margin:0}
+ .pd-saved-row{display:flex;align-items:center;gap:20px;padding:20px 0;border-bottom:1px solid #e4e7ed}.pd-saved-link{display:flex;align-items:stretch;gap:20px;flex:1;min-width:0;color:#131921;text-decoration:none}.pd-cover{width:88px;height:auto;aspect-ratio:2/3;object-fit:cover;align-self:flex-start;border-radius:4px;box-shadow:0 8px 16px #21212112;flex:none}.pd-cover-杂志{aspect-ratio:14/19}.pd-saved-copy{display:flex;flex-direction:column;justify-content:space-between;gap:20px;flex:1;min-width:0}.pd-saved-copy>div{display:flex;flex-direction:column;gap:4px}.pd-saved-copy small{font-size:12px;line-height:16px;color:#909399}.pd-saved-copy .pd-saved-meta{line-height:20px}
+ #portal-main[data-page=me] .pd-saved-copy h3{font-size:20px;line-height:32px;font-weight:700;margin:0}.pd-saved-copy p{font-size:14px;line-height:20px;color:#909399;margin:0}
+ .pd-save-toggle{display:grid;place-items:center;width:46px;height:46px;padding:11px;flex:none;background:#fff;border:0;border-radius:50%;box-shadow:0 2px 6px #0000001a;cursor:pointer;color:#131921}.pd-save-toggle .iconfont{font-size:24px;line-height:24px;width:24px;height:24px}.pd-save-toggle.is-star{color:#fa8c16}.pd-save-toggle:hover{background:#f5f7fa}
+}

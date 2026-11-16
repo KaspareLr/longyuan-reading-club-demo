@@ -1,0 +1,72 @@
+﻿id,page,module,field,status,destination,detailSlot,source,note
+F001,首页,读书会介绍,读书会名称,一级专用,各资源详情,无通用详情字段,index.html .intro h1,品牌名称，合理保留在首页/导航，不按资源字段缺失计
+F002,首页,读书会介绍,读书会简介,一级专用,各资源详情,无通用详情字段,index.html .intro-copy,读书会层级内容，不等于某一本书的简介
+F003,首页,领读人入口,领读人姓名,有位未贯通,领读人主页,oc-profile-name,script.js clubGuideProfiles → claimed-community.js octoberClubData,按人物id关联，但两份数据源独立维护
+F004,首页,领读人入口,领读人头衔,有位未贯通,领读人主页,oc-profile-identity>p,script.js clubGuideProfiles → claimed-community.js octoberClubData,按人物id关联，但两份数据源独立维护
+F005,首页,推荐图书,推荐标题,一级专用,图书详情,无推荐标题专用位,home-v3.js title,“好住的家…”是编辑推荐语，不是书名；详情有书名不代表有此字段
+F006,首页,推荐图书,推荐正文,有位未贯通,图书详情,book-detail-about>p,book-recommendation-fields.js body → portal.js b.summary,住宅设计案例当前语义一致，换行不同；字段未真正统一
+F007,首页,推荐图书,书名,有位未贯通,图书详情,book-sidebar-heading h1,home-v3.js 固定书名 → portal.js b.title,有展示位，按home-v3-house关联但首页书名硬编码
+F008,首页,推荐图书,作者/译者,有位未贯通,图书详情,book-sidebar-meta / book-detail-byline,home-v3.js resourceMeta → b.author,有位但首页硬编码，不是同源绑定
+F009,首页,推荐图书,导读,缺少展示位,图书详情,无独立导读区,recommendationFields.guide；portal.js bookDetail,详情目前只有图书简介和编辑推荐，未渲染guide
+F010,首页,推荐图书,为什么选它的具体内容,有位未贯通,图书详情,book-detail-quote>p（编辑推荐）,recommendationFields.why → b.reason,当前文案一致，数据源独立；标题不同并不妨碍语义映射
+F011,首页,推荐刊物,推荐标题,一级专用,刊物详情,无推荐标题专用位,home-v3.js title,刊物分支复用图书推荐语，属于需单独策划的首页文案
+F012,首页,推荐刊物,推荐正文,缺少展示位,刊物详情,只有ABOUT THE JOURNAL刊物简介，非推荐正文,home-v3.js description → periodical-layout.js d.intro,当前还复用住宅设计正文，存在内容类型配错，不能算对应
+F013,首页,推荐刊物,刊名,有位未贯通,刊物详情,pe-identity-top h1,home-v3.js AD安邸 → shelf 安邸AD,显示名称顺序不同，应按刊物id统一
+F014,首页,推荐刊物,期次,有位未贯通,刊物详情,pe-metadata / issue picker,home-v3.js 2024年11期；daily/mixed 2025年03期,同刊不同模块期次不同，链接未明确选择期次
+F015,首页,推荐刊物,导读,缺少展示位,刊物详情,无推荐导读位,home-v3.js guide → periodical-layout.js,刊物简介不能替代编辑导读；首页还复用图书导读
+F016,首页,推荐刊物,为什么选它的具体内容,缺少展示位,刊物详情,无推荐理由位,home-v3.js why → periodical-layout.js,首页复用图书推荐理由，详情未渲染独立推荐理由
+F017,首页,推荐文章,文章标题,有位未贯通,文章详情,portal-article-head h1,home-v3.js article.title / home-v3-data.js shared article,通过shared文章索引对应，当前文字一致，但首页标题与数据中的标题分别硬编码
+F018,首页,推荐文章,推荐正文/文章摘要,有位未贯通,文章详情,portal-prose .lead,home-v3.js article.body → shared summary,首页长正文含两段，详情摘要为另一份较短数据；有位未统一
+F019,首页,推荐文章,为什么选它的具体内容,缺少展示位,文章详情,无推荐理由位,home-v3.js articleWhy=guide,还复用图书导读，不是该文章推荐理由
+F020,首页,每日一读·图书,标题,有位未贯通,图书详情,对应资源主标题,home-v3.js dailyData,每日一读的图书按id进入详情
+F021,首页,每日一读·图书,作者,有位未贯通,图书详情,book-sidebar-meta,home-v3.js dailyData.meta,每日一读的图书按id进入详情
+F022,首页,每日一读·刊物,标题,有位未贯通,刊物详情,对应资源主标题,home-v3.js dailyData,每日一读显示2025年03期，链接默认期可能为2024年11期
+F023,首页,每日一读·刊物,期次,有位未贯通,刊物详情,pe-metadata,home-v3.js dailyData.meta,每日一读显示2025年03期，链接默认期可能为2024年11期
+F024,首页,每日一读·文章,标题,有位未贯通,文章详情,对应资源主标题,home-v3.js dailyData,作者/来源有位置，独立发布日期不总是带入
+F025,首页,每日一读·文章,来源/日期,有位未贯通,文章详情,portal-article-meta,home-v3.js dailyData.meta,作者/来源有位置，独立发布日期不总是带入
+F026,首页,每日一读·播客,标题,有位未贯通,播客详情,对应资源主标题,home-v3.js dailyData,首页试玩文案不是日期/主讲信息，播放器使用示例音频
+F027,首页,每日一读·播客,试听提示,有位未贯通,播客详情,podcast-meta,home-v3.js dailyData.meta,首页试玩文案不是日期/主讲信息，播放器使用示例音频
+F028,首页,精选图书,书名,有位未贯通,图书详情,book-sidebar-heading h1,script.js clubCatalogData.books → portal.js clubPortalData.books,通过图书id关联，独立集合维护，需防止内容漂移
+F029,首页,精选图书,作者/出版社,有位未贯通,图书详情,book-sidebar-meta / book-detail-byline,script.js clubCatalogData.books → portal.js clubPortalData.books,通过图书id关联，独立集合维护，需防止内容漂移
+F030,首页,精选图书,分类,有位未贯通,图书详情,book-sidebar-category,script.js clubCatalogData.books → portal.js clubPortalData.books,通过图书id关联，独立集合维护，需防止内容漂移
+F031,首页,精选杂志,刊名,有位未贯通,刊物详情,pe-identity-top h1,script.js clubCatalogData.magazines → pages shelf data,有展示位；应绑定刊物及期次而非只绑定刊名
+F032,首页,精选杂志,期次,有位未贯通,刊物详情,pe-metadata,script.js clubCatalogData.magazines → pages shelf data,有展示位；应绑定刊物及期次而非只绑定刊名
+F033,首页,播客列表,标题,有位未贯通,播客详情,podcast-intro h1,home-v3.js 固定十一红 → podcast.html 固定标题,文案一致但两个硬编码点；并非真正音频元数据
+F034,首页,播客列表,日期/试听说明,有位未贯通,播客详情,podcast-meta；desktop-demo,home-v3.js podcastMeta → podcast.html,标题为十一红，音频/字幕为林冲示例，应区分节目和演示音频
+F035,首页,精选混合列表,图书简介,有位未贯通,对应资源详情,book-detail-about>p,home-v3.js entries.summary,图书摘要和某些文章摘要复用description；有位但需按资源语义绑定
+F036,首页,精选混合列表,文章摘要,有位未贯通,对应资源详情,portal-prose .lead,home-v3.js entries.summary,图书摘要和某些文章摘要复用description；有位但需按资源语义绑定
+F037,首页,精选混合列表,刊物推荐摘要,缺少展示位,刊物详情,仅有刊物官方简介,home-v3.js entries[magazine].summary,当前复用图书description，既有内容配错又无推荐摘要专用位
+F038,首页,热门活动,活动标题,有位未贯通,活动详情,portal-event-detail h1,首页活动模板 → portal.js eventDetail,有标题展示位；首页与portal不同数据结构需按event id核对
+F039,首页,热门活动,活动摘要,有位未贯通,活动详情,portal-event-detail article>p,首页活动模板 → eventData.summary,有展示位，但不是稳定的共享字段
+F040,首页,热门活动,时间/地点/主办嘉宾,有位未贯通,活动详情,portal-facts（时间、地点），主办嘉宾未单列,index/script活动元信息 → portal.js eventDetail,时间地点有位；主办嘉宾需另列，不能误认为已完整覆盖
+F041,首页,热门活动,主办方/嘉宾独立字段,缺少展示位,活动详情,无主办方/嘉宾专用字段,activity-meta → portal.js eventDetail,当前详情的参与方式/活动安排不是主办方及嘉宾字段
+F042,领读人列表,页面介绍,页面主标题/说明,一级专用,领读人主页,无对应字段,people-home.js heading,页面导航性文案，合理不带入人物详情
+F043,领读人列表,领读人卡片,姓名,有位未贯通,领读人主页,oc-profile-name,clubPeopleProfiles → octoberClubData.lecturers.profiles,按人物id关联，数据有重复维护
+F044,领读人列表,领读人卡片,头衔,有位未贯通,领读人主页,oc-profile-identity>p,clubPeopleProfiles → octoberClubData.lecturers.profiles,按人物id关联，数据有重复维护
+F045,领读人列表,领读人卡片,领读寄语（非曹文轩）,有位未贯通,领读人主页,oc-profile-introduction首个section h2,people-home.js p.slogan → claimed-community p.slogan,同语义有位，两套人物数据未统一
+F046,领读人列表,曹文轩卡片,“如果你是故事中的主人公…”,有位未贯通,领读人主页,领读寄语位置存在但显示另一段slogan,people-home.js 曹文轩分支硬编码 → p.slogan,该文案实际来自共读问题，人物详情没有显示同一条；属于内容语义配错
+F047,领读人列表,个人空间引导,每个读者都有自己的光/说明,一级专用,个人中心,无同文案字段,people-home.js people-next-chapter,运营引导，非人物或用户资料字段，不按缺位计
+F048,领读人主页,领读内容列表,资源标题,同源贯通,共读详情,oc-guided-title h1,claimed-guided-reading.js octoberGuidedPlans同一plan,列表与详情读取同一plan及同一打卡状态
+F049,领读人主页,领读内容列表,作者/出版社/期次,同源贯通,共读详情,oc-guided-title>p,claimed-guided-reading.js octoberGuidedPlans同一plan,列表与详情读取同一plan及同一打卡状态
+F050,领读人主页,领读内容列表,进度,同源贯通,共读详情,oc-guided-progress,claimed-guided-reading.js octoberGuidedPlans同一plan,列表与详情读取同一plan及同一打卡状态
+F051,领读人主页,领读内容列表,领读语,同源贯通,共读详情,今日阅读任务中的“共读问题”,列表x.todayTask.question → plan.todayTask.question,确实同字段，不是独立缺失；但一级叫领读语，二级叫共读问题，命名不一致
+F052,领读人主页,领读内容列表,开始/结束日期,缺少展示位,共读详情,日历只有当月，未显示计划日期范围,列表x.start/end；renderOctoberGuidedDetail未渲染start/end,有数据无展示位，应区分日历月份与计划起止
+F053,领读人主页,领读内容列表,已完结/进行中状态,缺少展示位,共读详情,只有进度/加入按钮，无独立状态标签,列表x.past；详情未单列状态,100%不是同一个状态字段，不能视为已展示
+F054,领读人主页,领读内容列表,参与人数,同源贯通,共读详情,oc-reading-participants,两端都固定12人文案,位置贯通但数值为demo硬编码，不能视为真实统计
+F055,共读页,页面介绍,页面主标题/说明,一级专用,共读详情,无对应字段,reading-home.js heading,共读入口页文案，合理不带入某一计划
+F056,共读页,主推共读,主推资源名称,有位未贯通,共读详情,oc-guided-title h1,reading-home.js 硬编码 → magazine-第一财经 plan,双方第一财经名称一致，但一级硬编码
+F057,共读页,主推共读,期次,有位未贯通,共读详情,oc-guided-title>p,reading-home.js 硬编码 → magazine-第一财经 plan,一级2026年12期，计划为2026年09期；封面也指向9期
+F058,共读页,主推共读,进度,有位未贯通,共读详情,oc-guided-progress,reading-home.js 硬编码 → magazine-第一财经 plan,一级标签40%/进度状态与详情按打卡计算独立
+F059,共读页,主推共读,任务说明,有位未贯通,共读详情,oc-guided-question>p,reading-home.js 硬编码 → magazine-第一财经 plan,一级精读主题单元，与计划“选读本期一篇文章”不同
+F060,共读页,主推共读,共读问题,有位未贯通,共读详情,oc-guided-question blockquote p,reading-home.js 硬编码 → magazine-第一财经 plan,一级人物选择问题，与计划“哪个观点或细节”不同
+F061,共读页,主推共读,领读语,缺少展示位,共读详情,无独立领读语位置,reading-home-identity blockquote p → renderOctoberGuidedDetail,详情共读问题是另一语义，不能直接当领读语对应位
+F062,共读页,主推共读,已完结状态,缺少展示位,共读详情,无独立状态标签,reading-home-status → plan.past,状态为固定枚举；需要展示位不代表需要长文截断
+F063,共读页,主推共读,参与人数,同源贯通,共读详情,oc-reading-participants,两端均固定12人,属于共享显示口径，仍为demo数值
+F064,共读页,主推共读,倒计时/打卡/加入按钮,同源贯通,共读详情,今日阅读任务打卡区及加入区,同oc-reading:magazine-第一财经状态,流程状态有关联；按钮为系统文案，非长字段
+F065,共读页,共读列表,资源标题,有位未贯通,共读详情,oc-guided-title h1,portal.js plans from clubPortalData / clubCatalogData → octoberGuidedPlans,9条id均找到计划，但来自不同资源集合，不能一概认定同源
+F066,共读页,共读列表,作者/期次,有位未贯通,共读详情,oc-guided-title>p,portal.js plans from clubPortalData / clubCatalogData → octoberGuidedPlans,9条id均找到计划，但来自不同资源集合，不能一概认定同源
+F067,共读页,共读列表,领读语,缺少展示位,共读详情,无该通用领读语字段,portal.js “一起读懂文字里的细节…” → plan,二级没有message展示位；不能拿任务问题冒充该字段
+F068,共读页,共读列表,日期范围,缺少展示位,共读详情,缺计划日期范围区,portal.js start/end 硬编码 → plan.start/end未渲染,可先统一数据，再决定详情日期区
+F069,共读页,共读列表,进度,有位未贯通,共读详情,oc-guided-progress,portal.js p.progress 40/0/100 → checks/28或past,显示位置存在，计算来源不统一
+F070,共读页,共读列表,状态,缺少展示位,共读详情,缺独立状态区,portal.js p.status → plan.past,一级含即将开始，详情仅past二值，不只是缺一个标签
+F071,共读页,共读列表,参与人数,同源贯通,共读详情,oc-reading-participants,两端固定12人,位置已存在，真实统计未接入

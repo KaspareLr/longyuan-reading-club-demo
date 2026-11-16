@@ -1,0 +1,783 @@
+{
+  "version": "2026-11-04",
+  "figmaNode": "489:2631",
+  "recommendation": {
+    "maxVisible": 1,
+    "types": [
+      "book",
+      "magazine",
+      "article"
+    ],
+    "bookFields": [
+      "recommendationTitle",
+      "recommendationBody",
+      "resourceTitle",
+      "resourceMeta",
+      "guide",
+      "why"
+    ],
+    "magazineFields": [
+      "recommendationTitle",
+      "recommendationBody",
+      "resourceTitle",
+      "resourceMeta",
+      "guide",
+      "why"
+    ],
+    "articleFields": [
+      "recommendationTitle",
+      "articleBody",
+      "articleWhy"
+    ]
+  },
+  "daily": {
+    "gapPx": 20,
+    "ratio": {
+      "magazine": "14:19",
+      "book": "2:3",
+      "article": "2:3",
+      "podcast": "2:3"
+    },
+    "count": 6,
+    "minUniqueItems": 6,
+    "backdropBlurPx": 50,
+    "gradient": [
+      "rgba(0,0,0,0)",
+      "rgba(0,0,0,0.5)"
+    ],
+    "additionalDarkOverlay": false,
+    "heightDesktopPx": 480,
+    "heightMobilePx": 360,
+    "mobileMaxWidthPx": 760,
+    "initialAlignment": {
+      "mobile": "left at first card",
+      "desktop": "center"
+    },
+    "mobileTitleFontPx": 18,
+    "mobileTitleLineHeightPx": 26,
+    "mobileMetaFontPx": 11,
+    "mobileMetaLineHeightPx": 16,
+    "mobileGapPx": 12,
+    "mobileSidePaddingPx": 16
+  },
+  "mixedTypes": [
+    "magazine",
+    "book",
+    "podcast",
+    "article"
+  ],
+  "fields": {
+    "recommendationTitle": {
+      "maxCharacters": 32,
+      "maxLines": 2,
+      "overflow": "ellipsis-and-full-recommendation-dialog"
+    },
+    "recommendationBody": {
+      "maxCharacters": 140,
+      "maxLines": 4,
+      "overflow": "ellipsis-and-full-recommendation-dialog"
+    },
+    "articleBody": {
+      "maxCharacters": 260,
+      "maxLines": 6,
+      "overflow": "ellipsis-and-full-recommendation-dialog"
+    },
+    "resourceTitle": {
+      "maxCharacters": 24,
+      "maxLines": 2,
+      "overflow": "ellipsis-and-resource-detail"
+    },
+    "resourceMeta": {
+      "maxCharacters": 40,
+      "maxLines": 1,
+      "overflow": "ellipsis-and-resource-detail"
+    },
+    "guide": {
+      "maxCharacters": 44,
+      "maxLines": 2,
+      "overflow": "ellipsis-and-full-recommendation-dialog"
+    },
+    "why": {
+      "maxCharacters": 64,
+      "maxLines": 3,
+      "overflow": "ellipsis-and-full-recommendation-dialog"
+    },
+    "articleWhy": {
+      "maxCharacters": 60,
+      "maxLines": 2,
+      "overflow": "ellipsis-and-full-recommendation-dialog"
+    },
+    "dailyTitle": {
+      "maxCharacters": 40,
+      "maxLines": 2,
+      "overflow": "ellipsis-and-resource-detail"
+    },
+    "dailyMeta": {
+      "maxCharacters": 40,
+      "maxLines": 1,
+      "overflow": "ellipsis-and-resource-detail"
+    },
+    "podcastTitle": {
+      "maxCharacters": 48,
+      "maxLines": 2,
+      "overflow": "ellipsis-and-resource-detail"
+    },
+    "podcastMeta": {
+      "maxCharacters": 32,
+      "maxLines": 2,
+      "overflow": "ellipsis-and-resource-detail"
+    },
+    "mixedTitle": {
+      "maxCharacters": 48,
+      "maxLines": 2,
+      "overflow": "ellipsis-and-resource-detail"
+    },
+    "mixedMeta": {
+      "maxCharacters": 40,
+      "maxLines": 2,
+      "overflow": "ellipsis-and-resource-detail"
+    },
+    "mixedBody": {
+      "maxCharacters": 120,
+      "maxLines": 2,
+      "overflow": "ellipsis-and-resource-detail"
+    },
+    "mixedArticleBody": {
+      "maxCharacters": 240,
+      "maxLines": 4,
+      "overflow": "ellipsis-and-resource-detail"
+    }
+  },
+  "coreading": {
+    "coverShrink": false,
+    "progressAnimation": true,
+    "progressDurationMs": 1600
+  },
+  "selectedBooks": {
+    "source": "clubCatalogData.books",
+    "count": 4,
+    "footer": "author",
+    "cardPaddingPx": 20,
+    "coverVerticalInsetPx": 30,
+    "titleFontPx": 16,
+    "titleLineHeightPx": 28,
+    "authorFontPx": 12,
+    "authorLineHeightPx": 16,
+    "footerGapPx": 8,
+    "arrowSizePx": 24,
+    "sharedStylesheet": "book-card-shared.css"
+  },
+  "selectedMagazines": {
+    "source": "clubCatalogData.magazines",
+    "count": 5,
+    "coverFilenameSuffix": "-z"
+  },
+  "mixedPodcast": {
+    "coverPlayOverlay": false,
+    "playerPlayButton": true
+  },
+  "allBooksCards": {
+    "sharedStylesheet": "book-card-shared.css",
+    "fields": [
+      "cover",
+      "title",
+      "author",
+      "detailLink"
+    ],
+    "titleMaxCharacters": 40,
+    "titleMaxLines": 2,
+    "authorMaxCharacters": 32,
+    "authorMaxLines": 2,
+    "excludedFields": [
+      "publisher",
+      "chapters",
+      "category"
+    ]
+  },
+  "globalCoverRatios": {
+    "book": "2:3",
+    "magazine": "14:19",
+    "standaloneArticle": "2:3",
+    "magazineArticleIllustrations": "preserve-existing",
+    "stylesheet": "cover-ratios.css",
+    "semanticNormalizer": "cover-ratios.js",
+    "entrypoints": [
+      "index.html",
+      "portal.html",
+      "pages/index.html",
+      "water-margin.html"
+    ]
+  },
+  "peopleEntry": {
+    "roster": "window.clubPeopleProfiles",
+    "countBy": "unique valid profile id",
+    "single": "replace entry route with lecturer profile URL",
+    "multiple": {
+      "minCount": 2,
+      "banner": false,
+      "headingComponent": "reading-home-heading",
+      "headline": [
+        "与领读人相遇",
+        "把好书读深"
+      ],
+      "description": "跟随不同的阅读视角，发现值得共读的好书与文章，让每一次阅读都有新的收获。"
+    },
+    "empty": "show directory empty state without redirect"
+  },
+  "mobileRecommendation": {
+    "maxWidthPx": 760,
+    "layout": [
+      "recommendationTitle",
+      "recommendationBody",
+      "resourceIdentity",
+      "guide",
+      "why",
+      "actions"
+    ],
+    "outerPaddingPx": [
+      20,
+      16
+    ],
+    "titleFontPx": 26,
+    "titleLineHeightPx": 36,
+    "resourceHeight": "content-driven",
+    "coverWidthPx": "clamp(80px,20vw,112px)",
+    "guideAndReason": "full-width rows",
+    "actions": "read and full-preview in a single bottom row",
+    "desktop": "keep original two-column composition",
+    "articleCoverWidthPx": 220,
+    "articleCoverRatio": "2:3"
+  },
+  "mobileRefinement20261105": {
+    "breakpoint": 760,
+    "coreading": {
+      "figmaNode": "514:5857",
+      "padding": [
+        24,
+        16
+      ],
+      "gap": 20,
+      "coverWidth": 92,
+      "coverAlign": "center",
+      "coverRatio": "14:19",
+      "progressRing": 64,
+      "progressTextAlign": "left",
+      "joinPlacement": "right side inside progress card",
+      "joinSize": [
+        68,
+        32
+      ],
+      "primary": {
+        "label": "查看全部",
+        "href": "portal.html#/reading",
+        "width": "100%",
+        "height": 46
+      },
+      "narrowUnder360": {
+        "ring": 56,
+        "joinWidth": 52,
+        "progressPadding": 12
+      },
+      "restoreDesktopDOM": true,
+      "keepProgressAnimationAndActualValue": true
+    },
+    "mixedList": {
+      "figmaNode": "522:7451",
+      "gap": 0,
+      "rowPadding": [
+        20,
+        0
+      ],
+      "coverWidth": 88,
+      "coverRatios": {
+        "magazine": "14:19",
+        "book": "2:3",
+        "article": "2:3",
+        "podcast": "1:1"
+      },
+      "metaLayout": "number above source/date",
+      "metaTypography": [
+        [
+          14,
+          20
+        ],
+        [
+          12,
+          16
+        ]
+      ],
+      "title": [
+        16,
+        28
+      ],
+      "summary": [
+        14,
+        20
+      ],
+      "summaryMaxLines": {
+        "magazine": 2,
+        "book": 2,
+        "article": 4
+      },
+      "mobileArrows": false,
+      "divider": "full width",
+      "podcastPlayer": "full-width row below identity",
+      "podcastPlayerHeight": 70,
+      "playerControls": 48,
+      "showCurrentTime": true,
+      "desktopRestoresDOM": true
+    },
+    "navigation": {
+      "figmaNodes": [
+        "511:5323",
+        "511:5337"
+      ],
+      "primary": [
+        "首页",
+        "阅读",
+        "活动",
+        "会员"
+      ],
+      "secondaryParent": "阅读",
+      "secondary": [
+        "共读",
+        "领读人",
+        "杂志",
+        "图书"
+      ],
+      "defaultReading": "共读",
+      "homeAction": "recommendation page, primary navigation",
+      "backAction": "primary navigation, keep content, highlight 阅读",
+      "topTabs": false,
+      "moreTray": false,
+      "detailBackHidesEntireBottomNav": true
+    }
+  },
+  "dailyGradientAudit20261105": {
+    "figmaNode": "489:2867",
+    "allCards": {
+      "captionGradient": "linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 100%)",
+      "captionBackdropBlur": {
+        "mode": "PROGRESSIVE",
+        "figmaStartRadius": 0,
+        "figmaEndRadius": 100,
+        "startOffset": [
+          0.5,
+          0
+        ],
+        "endOffset": [
+          0.5,
+          1
+        ],
+        "cssEndBlur": 50,
+        "implementation": "8 masked layers, increasing blur, separate dark gradient"
+      },
+      "scope": "caption bounds, content driven height",
+      "extraLegacyOverlay": false
+    },
+    "podcastOnly": {
+      "fullBackgroundBlackOpacity": 0.4,
+      "foregroundCoverUnaffected": true,
+      "coverShadow": "0 4px 10px #0003"
+    },
+    "firstCardDateColor": "#fff",
+    "otherMetadataColor": "#e4e7ed",
+    "mobileKeepsSameGradientAndBlur": true
+  },
+  "podcastModuleAudit20261105": {
+    "figmaNode": "489:2828",
+    "scope": "#podcasts",
+    "card": {
+      "padding": 16,
+      "gap": 20,
+      "radius": 20,
+      "backgroundBlackOpacity": 0.4
+    },
+    "cover": {
+      "desktop": 144,
+      "mobile": 72,
+      "shadow": "0 4px 10px #0003"
+    },
+    "copyBlur": 0,
+    "titleDesktop": [
+      24,
+      32,
+      700
+    ],
+    "titleMobile": [
+      16,
+      24,
+      700
+    ],
+    "player": {
+      "desktop": [
+        400,
+        70
+      ],
+      "mobileHeight": 54,
+      "backgroundWhiteOpacity": 0.5,
+      "borderWhiteOpacity": 0.5,
+      "blur": 32,
+      "trackHeight": 10,
+      "thumbSize": 16,
+      "speedWhiteOpacity": 0.2,
+      "timeColor": "#fff"
+    },
+    "mixedListUnaffected": true
+  },
+  "mobileRecommendation5145492": {
+    "breakpoint": 760,
+    "padding": [
+      24,
+      16
+    ],
+    "radius": 24,
+    "gap": 20,
+    "resourcePadding": 10,
+    "resourceGap": 10,
+    "coverWidth": 88,
+    "guidePlacement": "right of cover, below title and author",
+    "whyPlacement": "full width below identity",
+    "whyMaxLines": 2,
+    "readButton": "full width, 46px tall, radius12",
+    "fullTextAction": "below read button when truncated",
+    "desktopUnchanged": true
+  },
+  "podcastLiveAudio": {
+    "source": "assets/water-margin/podcast-1.mp3",
+    "label": "试听演示音频",
+    "actualEpisodeSource": false,
+    "sharedAudio": true,
+    "rates": [
+      0.75,
+      1,
+      1.25,
+      1.5,
+      2
+    ],
+    "seek": true,
+    "replay": true,
+    "timeAndDuration": "from media metadata",
+    "pagehide": "pause"
+  },
+  "readingLandingMobile5145922": {
+    "route": "portal.html#/reading",
+    "breakpoint": 760,
+    "order": [
+      "identity and cover",
+      "task",
+      "progress and join"
+    ],
+    "outerPadding": [
+      24,
+      16
+    ],
+    "coverWidth": 92,
+    "task": {
+      "radius": 18,
+      "padding": 16,
+      "gap": 20,
+      "clockSize": 116,
+      "clockBorder": "neutral gray",
+      "countdown": "live",
+      "checkinSize": [
+        76,
+        32
+      ],
+      "clockLayoutSize": 116,
+      "clockPaintedDiameter": 126,
+      "clockStroke": 10,
+      "clockStrokeAlign": "CENTER",
+      "questionTypography": [
+        12,
+        16
+      ],
+      "baselineHeight": 148
+    },
+    "progress": {
+      "height": 76,
+      "padding": 10,
+      "radius": 16,
+      "joinSize": [
+        68,
+        32
+      ]
+    },
+    "desktopRestoresOriginalDOM": true
+  },
+  "readingListMobile5146020": {
+    "breakpoint": 760,
+    "scope": [
+      ".club-reading-list",
+      ".oc-reading-list-grid"
+    ],
+    "padding": [
+      24,
+      16
+    ],
+    "radius": 20,
+    "coverWidth": 82,
+    "layout": "cover left, metadata and guide right; summary full width below",
+    "summaryPadding": 16,
+    "summaryRadius": 20,
+    "ringSize": 52,
+    "title": [
+      18,
+      26
+    ],
+    "guide": [
+      13,
+      21
+    ],
+    "overflow": "single-line ellipsis, full detail via card link",
+    "desktopUnchanged": true
+  },
+  "mobileLatest20261105": {
+    "profileFigma": "527:2138",
+    "profileAvatar": 88,
+    "profileImage": 80,
+    "profileName": [
+      18,
+      28
+    ],
+    "profilePadding": [
+      24,
+      16
+    ],
+    "profileActionsHeight": 48,
+    "listProgressRing": 60,
+    "homeProgressRing": 72,
+    "guidedCountdownRing": 136,
+    "readingCountdownLayout": 126,
+    "stackCountdownBelowWidth": 360,
+    "secondaryBackDestination": "index.html",
+    "bookCarouselMobileControls": "3 dots",
+    "readerDock": {
+      "position": "fixed below header",
+      "height": 64,
+      "horizontalInset": 12,
+      "singleRow": true,
+      "selectedLabelOnly": false,
+      "notesCountBadge": true,
+      "labels": [
+        "原文",
+        "增强",
+        "自测",
+        "地图"
+      ],
+      "separateIconButtons": [
+        "笔记",
+        "知识图谱"
+      ]
+    },
+    "publicationOpeningMobile": {
+      "viewportWidthInset": 48,
+      "maxViewportHeightRatio": 0.56,
+      "maxHeight": 420,
+      "finalScale": 1.02
+    }
+  },
+  "localFunctionalIcons": {
+    "fontCss": "pages/assets/font_icon/iconfont.css",
+    "fontFamily": "font_family",
+    "rules": "docs/LOCAL-ICONFONT-SPEC.md"
+  },
+  "podcastDetail": {
+    "path": "podcast.html",
+    "source": "assets/water-margin/podcast-1.mp3",
+    "demoDuration": 44.495646,
+    "captionCount": 10,
+    "captionTiming": "estimated by text length; calibrate before production",
+    "playbackRates": [
+      0.75,
+      1,
+      1.25,
+      1.5,
+      2
+    ],
+    "captionSeek": true,
+    "followToggle": true,
+    "desktopFigma": "530:2233",
+    "mobileFigma": [
+      "530:2933",
+      "530:3075"
+    ],
+    "desktop": {
+      "container": 1360,
+      "innerPadding": 80,
+      "top": 168,
+      "title": [
+        80,
+        96
+      ],
+      "captionWidth": 800,
+      "captionNaturalHeight": true,
+      "captionGap": 20,
+      "playerHeight": 150,
+      "playerCover": 88,
+      "blurCSS": 32,
+      "blurFigma": 64,
+      "previousNext": false
+    },
+    "mobile": {
+      "artwork": 280,
+      "artworkRadius": 20,
+      "title": [
+        20,
+        32
+      ],
+      "playerHeight": 280,
+      "playerPadding": [
+        80,
+        40
+      ],
+      "captionNaturalHeight": true,
+      "switch": "artwork tap opens transcript; blank transcript surface or Escape returns",
+      "header": "article detail shared navigation",
+      "captionSeek": true,
+      "mute": true
+    }
+  },
+  "headerAccountName": {
+    "desktopFont": [
+      14,
+      22
+    ],
+    "desktopWidthEm": 6,
+    "desktopWidthPx": 84,
+    "avatarSize": 28,
+    "gap": 8,
+    "overflow": "single-line ellipsis",
+    "fullName": "native title tooltip",
+    "mobile": "avatar only",
+    "inputMaxLength": 12
+  },
+  "readingAgentIconException": {
+    "originalImages": [
+      "text",
+      "enhanced",
+      "anki",
+      "audio",
+      "quiz",
+      "map",
+      "knowledgeGraph"
+    ],
+    "notes": "local iconfont EditPen"
+  },
+  "backIcon": {
+    "class": "icon-Arrow_Forward-2",
+    "rotation": 180,
+    "direction": "left"
+  },
+  "dailyInitialAlignment": {
+    "desktop": "left",
+    "mobile": "left",
+    "scrollLeft": 0
+  },
+  "bookRecommendationSharedFields": {
+    "source": "book-recommendation-fields.js",
+    "body": {
+      "max": 140,
+      "lines": 4,
+      "banner": "below retained book title and author"
+    },
+    "guide": {
+      "max": 44,
+      "lines": 2
+    },
+    "why": {
+      "max": 64,
+      "lines": 3
+    }
+  },
+  "controlStates": {
+    "selectedBlackPerimeter": false,
+    "keyboardFocusVisible": true,
+    "checkIn": {
+      "requiresResourceJoined": true,
+      "storage": "oc-reading:<resourceId>",
+      "disabledBackground": "#e4e7ed",
+      "disabledText": "#909399",
+      "repeatSameDay": false,
+      "joinButton": "actual join; immediately synchronizes disabled/text state"
+    },
+    "mobileNavIcons": {
+      "people": "Male",
+      "magazines": "Magazine-2"
+    }
+  },
+  "topNavigationProgressiveBlur": {
+    "sharedFiles": [
+      "navigation-progressive-blur.css",
+      "navigation-progressive-blur.js"
+    ],
+    "radii": [
+      0.25,
+      0.5,
+      1,
+      2,
+      3,
+      5,
+      8,
+      12
+    ],
+    "extraHeight": {
+      "desktop": 24,
+      "mobile": 16
+    },
+    "direction": "strong at top, transparent at bottom",
+    "pointerEvents": "none",
+    "parentBackdropRoot": false,
+    "keepNavigationSharp": true
+  },
+  "mobileNavTransition": {
+    "duration": 360,
+    "easing": "cubic-bezier(.22,1,.36,1)",
+    "rightEdge": "fixed",
+    "widthDelta": 58,
+    "backTranslation": 64,
+    "returnDestination": "index.html",
+    "reducedMotion": "immediate"
+  },
+  "mobileArticleRecommendation5363332": {
+    "breakpoint": 760,
+    "padding": [
+      24,
+      16
+    ],
+    "radius": 24,
+    "columns": [
+      88,
+      "remaining"
+    ],
+    "columnGap": 10,
+    "rowGap": 20,
+    "image": [
+      88,
+      132
+    ],
+    "imageRadius": 4,
+    "title": [
+      18,
+      26,
+      600
+    ],
+    "whyLabel": [
+      14,
+      20,
+      700
+    ],
+    "whyBody": [
+      12,
+      16
+    ],
+    "body": [
+      14,
+      24
+    ],
+    "bodyMaxLines": 7,
+    "bodyMaxCharacters": 260,
+    "buttonHeight": 46,
+    "desktopUnchanged": true
+  }
+}

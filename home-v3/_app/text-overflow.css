@@ -1,0 +1,53 @@
+@import url("text-overflow-limits.css?v=20261116-mobile-title-3");
+/* The complete text stays in DOM. Only the last line's lower half is faded. */
+html body .to-managed{min-width:0;max-width:100%;white-space:normal!important;text-overflow:clip!important;-webkit-line-clamp:unset!important;line-clamp:unset!important;max-height:none!important;height:auto;overflow:visible!important;overflow-wrap:anywhere}
+html body .to-managed:not(.to-collapsed){-webkit-mask-image:none!important;mask-image:none!important}
+html body .to-managed.to-collapsed{display:block!important;max-height:calc(var(--to-limit,var(--to-lines,2))*1lh)!important;overflow:hidden!important}
+html body .to-managed.to-overflow{cursor:pointer;-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - var(--to-line)*.5),#0002 100%)!important;mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - var(--to-line)*.5),#0002 100%)!important}
+html body .to-managed.to-expanded{display:block!important;max-height:none!important;overflow:visible!important;white-space:normal!important}
+html body .to-overflow:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+html body .resource-excerpt-toggle,html body .reader-comment-expand,html body .v3-expand-recommendation{display:none!important}
+body.text-full-open{overflow:hidden}
+html body dialog.text-full-dialog{box-sizing:border-box;position:fixed;inset:0;width:min(600px,calc(100vw - 48px));max-height:calc(100dvh - 64px);margin:auto;padding:0;border:1px solid #ffffffb3;border-radius:24px;background:#fff;color:#131921;box-shadow:0 20px 80px #13192126;overflow:hidden}
+html body dialog.text-full-dialog[open]{display:flex;flex-direction:column}
+.text-full-dialog::backdrop{background:#13192145;backdrop-filter:blur(6px)}
+html body .text-full-dialog>header{display:flex;align-items:center;gap:16px;justify-content:space-between;flex:none;padding:16px 20px;border-bottom:1px solid #e4e7ed}
+html body .text-full-dialog h2{font:600 18px/28px Figtree,"PingFang SC",sans-serif;margin:0}
+html body .text-full-dialog header button{display:grid;place-items:center;flex:none;width:44px;height:44px;padding:10px;border:0;border-radius:50%;background:#f5f7fa;color:inherit}
+html body .text-full-dialog .iconfont{display:inline-flex!important;font-size:24px;line-height:24px}
+html body .text-full-body{min-height:0;overflow:auto;overscroll-behavior:contain;padding:24px;font:400 16px/28px Figtree,"PingFang SC",sans-serif;white-space:pre-wrap;overflow-wrap:anywhere}
+html body .text-full-dialog.night{background:#252a30;color:#eceff2;border-color:#ffffff26}
+html body .text-full-dialog.night header{border-color:#ffffff26}
+html body .text-full-dialog.night header button{background:#343c46}
+@media(max-width:760px){html body dialog.text-full-dialog{inset:auto 0 0;width:100%;max-width:none;min-width:0;max-inline-size:none;box-sizing:border-box;max-height:80dvh;margin:0;border-left:0;border-right:0;border-bottom:0;border-radius:24px 24px 0 0;padding-bottom:env(safe-area-inset-bottom)}html body .text-full-body{padding:20px 20px 28px}}
+
+/* List summaries are plain excerpts: preserve full DOM text, clamp with ellipsis. */
+html body .to-managed.to-ellipsis{cursor:inherit;-webkit-mask-image:none!important;mask-image:none!important;text-overflow:ellipsis!important}
+html body .to-managed.to-ellipsis.to-collapsed{display:-webkit-box!important;-webkit-box-orient:vertical;-webkit-line-clamp:var(--to-limit,var(--to-lines))!important;line-clamp:var(--to-limit,var(--to-lines))!important;overflow:hidden!important;max-height:calc(var(--to-limit,var(--to-lines,2))*1lh)!important}
+
+/* Card geometry wins over intrinsic text size. Do not clip the whole card:
+   cover depth/shadows and independent controls must stay visible. */
+html body :is(.v3-recommendation,.v3-resource,.v3-mixed-item,.v3-podcast,.daily-card,.book-card,.magazine,.guide,.people-guide-card,.oc-reading-list-card,.portal-event,.oc-activity-card,.books-library-card,.mag-card,.rank-row,.rd-article,.pe-article,.oc-article,.topic-card,.rd-feature-card,.portal-tool,.cf-result,.pd-saved-card,.pd-link-card) :is(div,section,header,footer,blockquote,figure){min-width:0}
+html body :is(.v3-recommendation-copy,.v3-resource-copy,.v3-mixed-meta,.v3-mixed-summary,.v3-podcast-copy,.article-copy,.feature-copy,.people-guide-card-copy,.oc-reading-list-content,.oc-reading-list-heading,.oc-reading-list-summary-copy,.cs-result-copy,.pd-saved-copy,.books-library-info,.magazines-card-info){min-width:0;max-width:100%;overflow-wrap:anywhere}
+html body :is(.v3-recommendation,.v3-resource,.v3-mixed-item,.v3-podcast,.daily-card,.book-card,.magazine,.guide,.people-guide-card,.oc-reading-list-card,.portal-event,.oc-activity-card,.books-library-card,.mag-card,.rank-row,.rd-article,.pe-article,.oc-article,.topic-card,.rd-feature-card,.portal-tool,.cf-result,.pd-saved-card,.pd-link-card) :is(h2,h3,h4,p,small,strong,dd){min-width:0;max-width:100%;overflow-wrap:anywhere}
+/* A clipped field must shrink inside a fixed-height flex card. */
+html body .to-managed.to-collapsed{min-height:0;flex-shrink:1;box-sizing:border-box}
+html body :is(.v3-recommendation-copy,.v3-resource-copy,.v3-podcast-copy){min-height:0}
+/* Keep the established 1:2 split, with shrinkable grid tracks. */
+html body .v3-mixed-content{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}
+@media(max-width:760px){html body .v3-mixed-content{grid-template-columns:minmax(0,1fr)}}
+
+/* Co-reading feature names are card titles, never unbounded page headings. */
+html body :is(.feature-copy,.reading-home-identity,.oc-reading-list-content,.oc-reading-list-heading){min-width:0;min-height:0}
+html body :is(.feature-copy,.reading-home-identity)>div{min-width:0}
+html body :is(.feature-copy h2,.reading-home-identity h2,.oc-reading-list-heading h3){overflow-wrap:anywhere;white-space:normal;min-width:0}
+/* Status is a short enum, not a paragraph or an expandable field. */
+html body :is(.badge,.reading-home-status,.oc-reading-list-status,.oc-status){flex:none;width:fit-content;white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important;-webkit-mask-image:none!important;mask-image:none!important;max-height:none!important;box-sizing:border-box}
+
+/* Keep the fixed role label separate from the bounded personal name. */
+html body #view-magazine .oc-profile-title h1>.oc-profile-name{font:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0;min-width:0;max-width:100%}
+html body #view-magazine .oc-profile-identity>p{min-width:0;overflow-wrap:anywhere}
+
+/* User nicknames are single-line labels, never expanded prose. */
+html body :is(.club-account-name,.cf-mobile-identity strong,.cf-account-menu>header strong){display:block!important;min-width:0;max-width:100%;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;-webkit-mask-image:none!important;mask-image:none!important;overflow-wrap:normal}
+html body .cf-mobile-identity>span,html body .cf-account-menu>header>div{min-width:0;flex:1}

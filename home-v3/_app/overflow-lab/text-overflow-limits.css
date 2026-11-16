@@ -1,0 +1,122 @@
+/* Current field line budgets. CSS owns visual limits; JS measures real overflow and handles disclosure. */
+/* Preserve existing type/spacing rules. --to-limit is unitless and follows responsive --v3-lines when present. */
+.nav-shell nav a{--to-limit:1} /* 导航名称 */
+.club-account-name{--to-limit:1} /* 登录昵称 */
+.intro h1{--to-limit:2} /* 读书会名称 */
+.intro-copy{--to-limit:3} /* 读书会简介 */
+.eyebrow,.section-title>span,.section-title>div>span{--to-limit:1} /* 栏目英文名 */
+.section-title h2{--to-limit:1} /* 栏目名称 */
+.guide-name-text{--to-limit:1} /* 领读人姓名 */
+.guide small{--to-limit:1} /* 领读人身份 */
+.feature-copy h2{--to-limit:2} /* 领读标题 */
+.feature-copy .issue{--to-limit:1} /* 期次 */
+.feature-copy blockquote p{--to-limit:3} /* 领读语 */
+.feature .badge{--to-limit:1} /* 领读状态 */
+.participants>span:last-child{--to-limit:1} /* 参与人数 */
+.progress-description p{--to-limit:2} /* 领读日期 */
+.book-card h3{--to-limit:2} /* 图书名称 */
+.book-card>p{--to-limit:2} /* 图书信息 */
+.book-card footer>span:first-child{--to-limit:2} /* 图书底部信息 */
+.magazine h3{--to-limit:2} /* 期刊名称 */
+.magazine p{--to-limit:1} /* 期刊期次 */
+.podcast h3{--to-limit:2} /* 播客标题 */
+.podcast-copy>div>p{--to-limit:1} /* 播客日期 */
+.daily-card h3{--to-limit:2} /* 每日一读标题 */
+.daily-card p{--to-limit:1} /* 每日一读来源 */
+.article-copy h3{--to-limit:2} /* 文章标题 */
+.article-copy>span{--to-limit:1} /* 文章来源 */
+.article-copy p{--to-limit:3} /* 文章摘要 */
+.activity h3{--to-limit:2} /* 活动标题 */
+.activity-copy>div>p{--to-limit:4} /* 活动简介 */
+.club-footer-brand>p,.club-footer-about>p{--to-limit:3} /* 页脚简介 */
+.club-footer-columns nav a{--to-limit:1} /* 页脚导航 */
+.books-library-card footer>span:first-child{--to-limit:2} /* 书库作者 */
+.portal-heading h1,.reading-home-heading h1,.page-hero h1,.home-title h1{--to-limit:3} /* 页面主标题 */
+.portal-heading>p,.reading-home-heading p,.quiet-copy{--to-limit:4} /* 页面导语 */
+.portal-section-heading h2,.pe-section-heading h2,.rd-section-top h2,.oc-heading h2,.editorial-heading h2,.magazines-section-title h2{--to-limit:2} /* 栏目标题 */
+.club-overline,.oc-eyebrow,.rd-eyebrow,.pe-kicker,.books-home-kicker>span,.magazines-home-kicker>span{--to-limit:1} /* 英文栏目名 */
+.reading-home-identity h2,.oc-guided-title h1,.books-home-identity h1,.magazines-home-identity h1{--to-limit:3} /* 共读主推名称 */
+.reading-home-issue,.magazines-home-issue>strong,.magazines-home-issue-label{--to-limit:1} /* 共读期次 */
+.reading-home-identity blockquote p,.reading-home-assignment blockquote p,.oc-reading-list-message p,.oc-guided-quote p{--to-limit:4} /* 共读领读语 */
+.reading-home-task-description,.oc-guided-task-heading p,.oc-guided-question p{--to-limit:3} /* 阅读任务说明 */
+.oc-reading-list-heading h3{--to-limit:2} /* 共读列表名称 */
+.oc-reading-list-heading p{--to-limit:2} /* 共读列表作者与期次 */
+.people-guide-identity h1,.people-guide-card h3,.oc-profile-title h1,.oc-person-card h3,.oc-guide h3,.oc-guide strong,.pe-identity-guide-name strong,.book-sidebar-guide-name strong{--to-limit:2} /* 领读人姓名 */
+.people-guide-identity>p,.people-guide-role,.oc-profile-identity>p,.oc-person-card p,.oc-guide small,.pe-identity-guide-slot small,.book-sidebar-guide small{--to-limit:2} /* 领读人职务 */
+.people-guide-message,.people-guide-card blockquote p,.oc-profile-greeting{--to-limit:4} /* 领读人寄语 */
+.people-guide-bio,.oc-profile-introduction>p,.oc-profile-introduction section>p{--to-limit:8} /* 领读人简介预览 */
+.people-guide-column{--to-limit:2} /* 领读人专栏名 */
+.portal-event h2,.activity-copy h3,.oc-activity-card h3{--to-limit:2} /* 活动卡片标题 */
+.portal-event>div>p,.activity-copy>div>p,.oc-activity-card p{--to-limit:4} /* 活动卡片摘要 */
+.portal-event-detail h1,.oc-event-hero h1{--to-limit:3} /* 活动详情标题 */
+.portal-plan-grid h2,.portal-plan-grid h3,.member-grid h3,.pe-plan-heading{--to-limit:2} /* 会员方案名称 */
+.portal-benefit-grid h3,.benefit h3{--to-limit:2} /* 会员权益标题 */
+.portal-benefit-grid p,.benefit p{--to-limit:4} /* 会员权益说明 */
+.portal-account-side h2,.portal-account-panel h2,.portal-account-panel h3{--to-limit:2} /* 个人昵称 */
+.portal-account-side>p{--to-limit:4} /* 个人签名 */
+.book-sidebar-heading h1,.pe-identity-top h1,.rd-heading h1,.books-home-copy h1,.magazines-home-info h1{--to-limit:3} /* 书名与刊名详情 */
+.book-sidebar-meta>span,.book-detail-byline>span,.rd-meta>span,.pe-metadata>span,.oc-guided-title>p{--to-limit:2} /* 作者与出版社 */
+.book-sidebar-category{--to-limit:1} /* 图书分类 */
+.portal-tool strong,.term-card h3,.rd-tools h3{--to-limit:2} /* 工具名称 */
+.portal-tool small,.rd-tools p{--to-limit:3} /* 工具简介 */
+.book-contents-group>summary>strong,.portal-toc-group>span:last-child,.pe-group h3,.rd-article-group h3{--to-limit:2} /* 目录章名 */
+.book-contents-title,.reader-toc-article strong,.toc-item strong,.pe-article h3,.rd-article h3,.pe-article h4,.rd-article h4{--to-limit:2} /* 目录篇名 */
+.reader-toc-article small,.pe-article p,.rd-article p{--to-limit:3} /* 目录摘要 */
+.reader-resource strong,.pe-directory-title h1,.pe-directory-title h2{--to-limit:2} /* 阅读器资源名称 */
+.reader-resource small{--to-limit:2} /* 阅读器资源署名 */
+.portal-article-meta>span,.byline>span{--to-limit:2} /* 阅读文章署名 */
+.portal-article-notes article>strong,.oc-reading-notes article>strong{--to-limit:1} /* 评论者姓名 */
+.books-library-info h3,.books-library-info h2,.magazines-card-info h3,.mag-card h3,.small-book-row h3{--to-limit:2} /* 书库名称 */
+.books-library-info p,.magazines-card-info p,.mag-meta{--to-limit:2} /* 书库署名 */
+.topic-card h2,.topic-card h3,.topic-detail-hero h1,.lead-story h2,.story-copy h3{--to-limit:3} /* 专题卡片标题 */
+.topic-card p,.story-copy p{--to-limit:4} /* 专题卡片摘要 */
+.magazines-story-caption h3,.magazines-story-caption h2,.pe-related-info h3{--to-limit:2} /* 期刊故事标题 */
+.magazines-story-caption p,.pe-related-summary{--to-limit:4} /* 期刊故事摘要 */
+.academic-result-head h3,.academic-results h3{--to-limit:3} /* 学术结果标题 */
+.academic-result-meta,.source-row>span{--to-limit:2} /* 学术结果元信息 */
+.conversation-nav h3,.conversation-nav strong{--to-limit:2} /* 对话列表标题 */
+#portal-dialog-title,.rd-modal-top h2,.academic-dialog-top h2{--to-limit:3} /* 弹窗标题 */
+.portal-tabs button,.filter-chip,.books-library-filters button,.magazines-category-filters button{--to-limit:1} /* 筛选项 */
+.club-account-name{--to-limit:1} /* 导航昵称 */
+.nav-shell nav a,.nav-links-group a{--to-limit:1} /* 导航名称 */
+.club-footer-brand>p,.club-footer-about>p{--to-limit:3} /* 页脚说明 */
+.club-footer-columns nav a{--to-limit:1} /* 页脚导航 */
+.pe-issue-picker summary,.pe-issue-picker a,.pe-categories button{--to-limit:2} /* 刊物期次与筛选 */
+.oc-profile-introduction h2{--to-limit:4} /* 领读人寄语与专栏 */
+.oc-opinion-slide p{--to-limit:6} /* 阅读观点预览 */
+.oc-opinion-slide small{--to-limit:2} /* 阅读观点出处 */
+.books-home-identity h2,.book-spotlight h3,.book-feature h3{--to-limit:3} /* 主推图书标题 */
+.academic-masthead-copy h1,.welcome-chat h1,.topic-section h1,.content>h1,.member-hero h1{--to-limit:3} /* 学术及专题页面主标题 */
+.academic-panel-title h2,.academic-insight-ai h2,.research-desk h2,.content>h2,.side-card h2,.rd-section h2,.oc-section>h2,.book-detail-tools h2{--to-limit:2} /* 通用栏目标题 */
+.discovery-topic h3,.research-link h3,.rank-row h3{--to-limit:3} /* 推荐专题标题 */
+.discovery-topic p,.research-link p,.rank-row p{--to-limit:4} /* 推荐专题摘要 */
+.oc-person-card strong{--to-limit:1} /* 推荐人物姓名 */
+.wm-title-line h1,.wm-scene-heading h2,.wm-section-heading h2,.wm-beat h3,#wm-episode-title{--to-limit:3} /* 图书阅读页标题 */
+[data-recommendation-field="body"]{--to-limit:4} /* 推荐正文 */
+[data-recommendation-field="guide"]{--to-limit:2} /* 推荐导读 */
+[data-recommendation-field="why"]{--to-limit:3} /* 为什么选它 */
+[data-v3-field]{--to-limit:var(--v3-lines,2)}
+[data-overflow-lines="1"]{--to-limit:1}
+[data-overflow-lines="2"]{--to-limit:2}
+[data-overflow-lines="3"]{--to-limit:3}
+[data-overflow-lines="4"]{--to-limit:4}
+[data-overflow-lines="6"]{--to-limit:6}
+[data-overflow-lines="8"]{--to-limit:8}
+.oc-profile-name,.oc-profile-identity>p{--to-limit:2}
+.reading-home-task-description,.reading-home-assignment blockquote p,.oc-guided-question>p,.oc-guided-question blockquote p{--to-limit:3}
+.intro-copy{--to-limit:3}
+.reader-comment-text,.book-notes-list article p,.oc-reading-notes article p{--to-limit:4}
+.book-detail-about>p,.pe-intro-copy>p,.people-guide-bio,.oc-profile-introduction>p,.oc-profile-introduction section>p,.oc-opinion-slide p,.portal-event-detail article>p,.oc-event-summary{--to-limit:6}
+.book-detail-quote>p{--to-limit:4}
+.feature-copy blockquote p,.reading-home-identity blockquote p,.oc-reading-list-message p{--to-limit:3}
+.people-guide-card-copy>div>p,.books-library-card footer>span:first-child{--to-limit:2}
+.feature-copy h2,.reading-home-identity h2,.oc-reading-list-heading h3{--to-limit:2}
+.club-account-name,.cf-mobile-identity strong,.portal-account-side>h2,.cf-account-menu>header strong{--to-limit:1}
+
+/* These limits work before initialization too; no literal text truncation. */
+html body :is(.oc-profile-name,.oc-profile-identity>p,.reading-home-task-description,.reading-home-assignment blockquote p,.oc-guided-question>p,.oc-guided-question blockquote p,.intro-copy,.reader-comment-text,.book-notes-list article p,.oc-reading-notes article p,.book-detail-about>p,.pe-intro-copy>p,.people-guide-bio,.oc-profile-introduction>p,.oc-profile-introduction section>p,.oc-opinion-slide p,.portal-event-detail article>p,.oc-event-summary,.book-detail-quote>p,.feature-copy blockquote p,.reading-home-identity blockquote p,.oc-reading-list-message p,.people-guide-card-copy>div>p,.books-library-card footer>span:first-child):not(.to-managed){min-width:0;max-width:100%;overflow-wrap:anywhere;max-height:calc(var(--to-limit)*1lh);overflow:hidden}
+html body :is(.feature-copy h2,.reading-home-identity h2,.oc-reading-list-heading h3):not(.to-managed){display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--to-limit);line-clamp:var(--to-limit);overflow:hidden;white-space:normal;min-width:0;max-height:calc(var(--to-limit)*1lh)}
+
+
+/* Web and mobile: all homepage recommendation headlines allow up to three lines. */
+body.home-v3 .v3-recommendation [data-v3-field="recommendationTitle"]{--to-limit:3;--v3-lines:3!important}

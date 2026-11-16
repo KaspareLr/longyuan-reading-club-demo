@@ -1,0 +1,16 @@
+{
+  "version": "2026-11-16",
+  "source": "longyuan-reading-club-home-v3",
+  "imagePolicy": "independent-shared-host",
+  "imagePaths": 1540,
+  "imageObjects": 684,
+  "normalEntry": "feature-review.html",
+  "stressEntry": "overflow-lab/overflow-check.html",
+  "scope": [
+    "personal",
+    "search",
+    "sharing",
+    "text-overflow"
+  ],
+  "localOnlyMaterialsExcluded": true
+}
